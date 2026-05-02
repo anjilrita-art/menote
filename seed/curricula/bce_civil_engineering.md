@@ -4,6 +4,8 @@ Saved from `https://ioe.tu.edu.np/pages/civil-engineering-curriculum-structure-2
 
 ## Bachelor in Civil Engineering
 
+
+
 Year I: Part I
 
 | S. N. | Course Code | Course Title | Credits |

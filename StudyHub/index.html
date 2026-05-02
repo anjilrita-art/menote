@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub -Resource Hub</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+
+</head> 
+</head>
+<body>
+    <header>
+        <h1>StudyHub</h1>
+        <div class="subtitle">A simple resource hub for notes, past papers, and syllabi</div>
+    </header>
+
+    <nav>
+        <button class="tab-btn active" data-tab="notes">Notes</button>
+        <button class="tab-btn" data-tab="past-papers">Past Papers</button>
+        <button class="tab-btn" data-tab="syllabus">Syllabus</button>
+        <button class="tab-btn" data-tab="community">Community</button>
+    </nav>
+
+    <main>
+        <!-- NOTES SECTION -->
+        <section class="tab-content active" id="notes">
+            <h2>Study Notes</h2>
+            <div class="success-message" id="notes-success"></div>
+            <div class="error-message" id="notes-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="notes-controls-card">
+                <div class="notes-nav" id="notes-nav">
+                    <div class="notes-nav-row" id="notes-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="notes-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="notes-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectSubject('__all__')">All</button>
+                        <span id="notes-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">
+                    Tip: Upload notes with Faculty + Semester, then use these buttons to filter and download.
+                </div>
+                <div id="notes-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="notes-search" placeholder="Search notes by subject or topic...">
+            </div>
+
+            <!-- Notes List -->
+            <div id="notes-list" class="files-list bottom-results">
+                <div class="empty-state" id="notes-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No notes uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAST PAPERS SECTION -->
+        <section class="tab-content" id="past-papers">
+            <h2>Past Exam Papers</h2>
+            <div class="success-message" id="papers-success"></div>
+            <div class="error-message" id="papers-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="big-controls">
+                <div class="notes-nav" id="papers-nav">
+                    <div class="notes-nav-row" id="papers-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectPapersFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectPapersFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectPapersFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectPapersFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectPapersFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="papers-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectPapersSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectPapersSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectPapersSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectPapersSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectPapersSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectPapersSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectPapersSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectPapersSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="papers-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectPapersSubject('__all__')">All</button>
+                        <span id="papers-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">Pick Faculty + Semester to filter past papers, then download.</div>
+                <div id="papers-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="papers-search" placeholder="Search papers by subject or year...">
+            </div>
+
+            <!-- Papers List -->
+            <div id="papers-list" class="files-list bottom-results">
+                <div class="empty-state" id="papers-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No past papers uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYLLABUS SECTION -->
+        <section class="tab-content" id="syllabus">
+            <h2>Course Syllabi</h2>
+            <div class="success-message" id="syllabus-success"></div>
+            <div class="error-message" id="syllabus-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="big-controls">
+                <div class="notes-nav" id="syllabus-nav">
+                    <div class="notes-nav-row" id="syllabus-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectSyllabusFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectSyllabusFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectSyllabusFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectSyllabusFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectSyllabusFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="syllabus-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectSyllabusSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectSyllabusSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectSyllabusSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectSyllabusSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectSyllabusSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectSyllabusSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectSyllabusSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectSyllabusSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="syllabus-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectSyllabusSubject('__all__')">All</button>
+                        <span id="syllabus-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">Pick Faculty + Semester to filter syllabi, then download.</div>
+                <div id="syllabus-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="syllabus-search" placeholder="Search syllabus by course or instructor...">
+            </div>
+
+            <!-- Syllabus List -->
+            <div id="syllabus-list" class="files-list bottom-results">
+                <div class="empty-state" id="syllabus-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No syllabi uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+        <!-- COMMUNITY SECTION -->
+        <section class="tab-content" id="community">
+            <h2>Community</h2>
+            <div class="success-message" id="community-success"></div>
+            <div class="error-message" id="community-error"></div>
+
+            <div class="big-controls">
+                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between;">
+                    <div style="min-width:260px; flex:1;">
+                        <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Share a resource</div>
+                        <form class="form-grid" id="community-form" onsubmit="createPost(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="community-faculty">Faculty</label>
+                                    <select id="community-faculty">
+                                        <option value="">Any</option>
+                                        <option value="BEL">BEL</option>
+                                        <option value="BCT">BCT</option>
+                                        <option value="BEX">BEX</option>
+                                        <option value="BMX">BMX</option>
+                                        <option value="BCE">BCE</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="community-semester">Semester</label>
+                                    <select id="community-semester">
+                                        <option value="">Any</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="community-subject">Subject (optional)</label>
+                                <input type="text" id="community-subject" placeholder="e.g., Electric Circuit II, Hydraulics">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-title">Title</label>
+                                <input type="text" id="community-title" placeholder="e.g., Hydraulics notes (unit 1-3)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="community-body">Description (optional)</label>
+                                <input type="text" id="community-body" placeholder="Short description...">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-file">Attach file (optional)</label>
+                                <input type="file" id="community-file" accept=".pdf,.docx,.txt,.ppt,.pptx,.zip,.rar,.jpg,.png">
+                            </div>
+                            <button type="submit" class="upload-btn" style="grid-column: 1 / -1;">Post</button>
+                        </form>
+                    </div>
+                    <div style="min-width:260px; flex:1;">
+                        <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Browse</div>
+                        <div class="search-box" style="margin-bottom:0;">
+                            <input type="text" id="community-search" placeholder="Search posts...">
+                        </div>
+                        <div class="notes-hint">Students can upload resources here and vote them up/down.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="community-list" class="files-list">
+                <div class="empty-state" id="community-empty">
+                    <div class="empty-state-icon">💬</div>
+                    <div>No community posts yet.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
