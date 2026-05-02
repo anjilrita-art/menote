@@ -1,0 +1,67 @@
+{
+  "BCT": {
+    "1": [
+      "Engineering Mathematics I",
+      "Computer Programming",
+      "Engineering Drawing",
+      "Fundamental of Electrical and Electronics Engineering",
+      "Engineering Physics",
+      "Engineering Workshop"
+    ],
+    "2": [
+      "Engineering Mathematics II",
+      "Object Oriented Programming",
+      "Digital Logic",
+      "Electronic Device and Circuits",
+      "Engineering Chemistry",
+      "Electrical Circuits and Machines"
+    ],
+    "3": [
+      "Engineering Mathematics III",
+      "Communication English",
+      "Computer Graphics and Visualization",
+      "Foundation of Data Science",
+      "Theory of Computation",
+      "Microprocessors"
+    ],
+    "4": [
+      "Numerical Methods",
+      "Instrumentation",
+      "Electromagnetics",
+      "Data Structure and Algorithm",
+      "Data Communication",
+      "Operating System"
+    ],
+    "5": [
+      "Probability and Statistics",
+      "Database Management System",
+      "Web Application Programming",
+      "Computer Organization and Architecture",
+      "Computer Networks",
+      "Elective I"
+    ],
+    "6": [
+      "Engineering Economics",
+      "Artificial Intelligence",
+      "Software Engineering",
+      "Simulation and Modeling",
+      "Minor Project",
+      "Elective II"
+    ],
+    "7": [
+      "Digital Signal Analysis and Processing",
+      "Distributed and Cloud Computing",
+      "ICT Project Management",
+      "Energy, Environment and Social Engineering",
+      "Elective III",
+      "Project I"
+    ],
+    "8": [
+      "Network and Cyber Security",
+      "Elective IV",
+      "Internship",
+      "Project II"
+    ]
+  }
+}
+

@@ -99,6 +99,20 @@ def _category_or_404(raw: str | None) -> str:
 
 app = Flask(__name__, static_folder=None)
 
+@app.after_request
+def _add_cors_headers(resp):
+    # Let the frontend be served from another origin (e.g. VSCode Live Server)
+    # while the API runs on http://127.0.0.1:8000.
+    resp.headers.setdefault("Access-Control-Allow-Origin", "*")
+    resp.headers.setdefault("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+    resp.headers.setdefault("Access-Control-Allow-Headers", "Content-Type")
+    return resp
+
+
+@app.route("/api/<path:_any>", methods=["OPTIONS"])
+def _cors_preflight(_any: str):
+    return ("", 204)
+
 
 @app.get("/")
 def home():

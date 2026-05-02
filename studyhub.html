@@ -13,23 +13,59 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            color: #0f172a;
+            min-height: 100vh;
+            background:
+                radial-gradient(900px 520px at 14% 18%, rgba(99, 102, 241, 0.22), transparent 60%),
+                radial-gradient(760px 420px at 88% 26%, rgba(168, 85, 247, 0.18), transparent 58%),
+                radial-gradient(860px 520px at 55% 96%, rgba(16, 185, 129, 0.12), transparent 55%),
+                linear-gradient(180deg, #0b1220 0%, #0b1220 260px, #f6f7fb 260px, #f6f7fb 100%);
+            background-attachment: fixed;
+        }
+
+        /* subtle pattern overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+            background-size: 22px 22px;
+            opacity: 0.22;
+            mix-blend-mode: overlay;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.94);
+            padding: 2.25rem 1.25rem 1.75rem;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 0;
+            background: transparent;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(168, 85, 247, 0.85) 50%, rgba(15, 23, 42, 0.65) 100%);
+            opacity: 0.65;
+            z-index: -1;
         }
 
         header h1 {
-            font-size: 28px;
-            margin: 0 0 8px;
-            font-weight: 600;
+            font-size: 30px;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header .subtitle {
+            margin-top: 10px;
+            font-size: 13px;
+            opacity: 0.9;
         }
 
         header p {
@@ -39,8 +75,10 @@
         }
 
         nav {
-            background: white;
-            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.65rem 1rem;
             display: flex;
             gap: 1rem;
             border-bottom: 0.5px solid #e0e0e0;
@@ -73,6 +111,7 @@
         }
 
         main {
+            position: relative;
             max-width: 1000px;
             margin: 0 auto;
             padding: 1.5rem;
@@ -508,15 +547,15 @@
 </head>
 <body>
     <header>
-        <h1>📚 StudyHub</h1>
-        
+        <h1>StudyHub</h1>
+        <div class="subtitle">A simple resource hub for notes, past papers, and syllabi</div>
     </header>
 
     <nav>
-        <button class="tab-btn active" data-tab="notes">📖 Study Notes</button>
-        <button class="tab-btn" data-tab="past-papers">❓ Past Papers</button>
-        <button class="tab-btn" data-tab="syllabus">📋 Syllabus</button>
-        <button class="tab-btn" data-tab="community">💬 Community</button>
+        <button class="tab-btn active" data-tab="notes">Notes</button>
+        <button class="tab-btn" data-tab="past-papers">Past Papers</button>
+        <button class="tab-btn" data-tab="syllabus">Syllabus</button>
+        <button class="tab-btn" data-tab="community">Community</button>
     </nav>
 
     <main>
@@ -780,7 +819,18 @@
             });
         });
 
-        const API_BASE = '';
+        // If you open this HTML via VSCode Live Server or file://, the API may be on a different origin.
+        // You can also force it with `?api=http://127.0.0.1:8000`.
+        const API_BASE = (() => {
+            const params = new URLSearchParams(window.location.search || '');
+            const fromQuery = (params.get('api') || '').trim();
+            if (fromQuery) return fromQuery.replace(/\/+$/, '');
+            if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000';
+            // If you're already on the Flask server (served from /), use same-origin.
+            if (window.location.port === '8000') return '';
+            // Common dev setup: Live Server on 5500, Flask on 8000.
+            return 'http://127.0.0.1:8000';
+        })();
         const FACULTIES = ['BEL', 'BCT', 'BEX', 'BMX', 'BCE'];
         const SEMESTERS = ['1','2','3','4','5','6','7','8'];
 
@@ -851,8 +901,71 @@
                     'Internship',
                     'Project II'
                 ]
-            }
-            ,
+            },
+            BCT: {
+                '1': [
+                    'Engineering Mathematics I',
+                    'Engineering Physics',
+                    'Computer Programming',
+                    'Engineering Drawing',
+                    'Engineering Workshop',
+                    'Fundamental of Electrical and Electronics Engineering'
+                ],
+                '2': [
+                    'Engineering Mathematics II',
+                    'Engineering Chemistry',
+                    'Object Oriented Programming',
+                    'Digital Logic',
+                    'Electronic Device and Circuits',
+                    'Electrical Circuits and Machines'
+                ],
+                '3': [
+                    'Engineering Mathematics III',
+                    'Communication English',
+                    'Computer Graphics and Visualization',
+                    'Foundation of Data Science',
+                    'Theory of Computation',
+                    'Microprocessors'
+                ],
+                '4': [
+                    'Numerical Methods',
+                    'Instrumentation',
+                    'Electromagnetics',
+                    'Data Structure and Algorithm',
+                    'Data Communication',
+                    'Operating System'
+                ],
+                '5': [
+                    'Probability and Statistics',
+                    'Database Management System',
+                    'Web Application Programming',
+                    'Computer Organization and Architecture',
+                    'Computer Networks',
+                    'Elective I'
+                ],
+                '6': [
+                    'Engineering Economics',
+                    'Artificial Intelligence',
+                    'Software Engineering',
+                    'Simulation and Modeling',
+                    'Minor Project',
+                    'Elective II'
+                ],
+                '7': [
+                    'Digital Signal Analysis and Processing',
+                    'Distributed and Cloud Computing',
+                    'ICT Project Management',
+                    'Energy, Environment and Social Engineering',
+                    'Elective III',
+                    'Project I'
+                ],
+                '8': [
+                    'Network and Cyber Security',
+                    'Elective IV',
+                    'Internship',
+                    'Project II'
+                ]
+            },
             BCE: {
                 '1': [
                     'Engineering Mathematics I',
@@ -1127,7 +1240,7 @@
                 btn.addEventListener('click', () => window.open(externalUrl, '_blank', 'noopener'));
             } else {
                 btn.textContent = '⬇ Download';
-                btn.addEventListener('click', () => window.open(`${API_BASE}/api/files/${id}`, '_blank'));
+                btn.addEventListener('click', () => downloadFile(id));
             }
 
             header.appendChild(info);
