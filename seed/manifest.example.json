@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "category": "notes",
+      "path": "notes/bct_sem1_math_unit1.pdf",
+      "original_name": "BCT Sem1 Mathematics Unit 1.pdf",
+      "meta": {
+        "faculty": "BCT",
+        "semester": "1",
+        "subject": "Mathematics I",
+        "topic": "Unit 1"
+      }
+    },
+    {
+      "category": "past-papers",
+      "path": "papers/bct_sem1_math_final_2024.pdf",
+      "original_name": "BCT Sem1 Math Final 2024.pdf",
+      "meta": {
+        "faculty": "BCT",
+        "semester": "1",
+        "subject": "Mathematics I",
+        "year": "2024",
+        "type": "Final"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/bct_sem1_math_syllabus.pdf",
+      "original_name": "Mathematics I Syllabus.pdf",
+      "meta": {
+        "faculty": "BCT",
+        "semester": "1",
+        "subject": "Mathematics I",
+        "code": "MTH101",
+        "instructor": "Department"
+      }
+    }
+  ]
+}
+

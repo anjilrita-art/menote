@@ -1,0 +1,69 @@
+{
+  "BMX": {
+    "1": [
+      "Computer Programming",
+      "Engineering Chemistry",
+      "Engineering Drawing",
+      "Engineering Mathematics I",
+      "Engineering Mechanics I",
+      "Fundamental of Electrical and Electronics Engineering"
+    ],
+    "2": [
+      "Engineering Mathematics II",
+      "Engineering Mechanics II",
+      "Engineering Physics",
+      "Engineering Thermodynamics I",
+      "Machine Drawing",
+      "Workshop Technology"
+    ],
+    "3": [
+      "Engineering Mathematics III",
+      "Engineering Thermodynamics II",
+      "Manufacturing and Production Processes",
+      "Material Science",
+      "Metrology",
+      "Strength of Materials"
+    ],
+    "4": [
+      "Computer Aided Design",
+      "Electrical Machines",
+      "Fluid Mechanics with Engineering Applications",
+      "Instrumentation and Sensors",
+      "Mechanics of Solids",
+      "Probability and Statistics"
+    ],
+    "5": [
+      "Automotive Technology",
+      "Control System and Automation",
+      "Fluid Machines",
+      "Numerical Methods",
+      "Organization and Management",
+      "Technical English",
+      "Theory of Machines and Mechanism"
+    ],
+    "6": [
+      "Elective I",
+      "Heat and Mass Transfer",
+      "Industrial Engineering and Management",
+      "Machine Design I",
+      "Machine Dynamics",
+      "Minor Project",
+      "Professional Engineering Economics"
+    ],
+    "7": [
+      "Applied Computational Fluid Dynamics",
+      "Elective II",
+      "Energy Resources and Technology",
+      "Enterpreneurship Development",
+      "Finite Element Method",
+      "Machine Design II",
+      "Project I"
+    ],
+    "8": [
+      "Elective III",
+      "Industrial Attachment*",
+      "Project II",
+      "Project Management and Professional Practice"
+    ]
+  }
+}

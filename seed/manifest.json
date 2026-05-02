@@ -1,0 +1,2007 @@
+{
+  "files": [
+    {
+      "category": "syllabus",
+      "path": "syllabus/BEL_Sem5_Syllabus.pdf",
+      "original_name": "5th-Sem-New-Course-Syllabus copy.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Syllabus",
+        "code": "BEL-SEM5",
+        "instructor": "Department"
+      }
+    },
+    {
+      "category": "syllabus",
+      "external_url": "http://portal.tu.edu.np/downloads/2025_10_09_09_01_32.pdf",
+      "original_name": "Engineering Chemistry (BEX) - ENSH153.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Engineering Chemistry",
+        "code": "ENSH153",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENCE104_Applied_Mechanics.pdf",
+      "original_name": "2025_10_06_14_16_57.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Applied Mechanics",
+        "code": "ENCE104",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENCT101_Computer_Programming.pdf",
+      "original_name": "2025_10_06_14_17_14.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Computer Programming",
+        "code": "ENCT101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENEE101_Electric_Circuit_I.pdf",
+      "original_name": "2025_10_06_14_17_36.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Electric Circuit I",
+        "code": "ENEE101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENME101_Engineering_Drawing.pdf",
+      "original_name": "2025_10_06_14_19_09.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Engineering Drawing",
+        "code": "ENME101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENSH101_Engineering_Mathematics_I.pdf",
+      "original_name": "2025_10_06_14_20_14.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Engineering Mathematics I",
+        "code": "ENSH101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem1_ENSH102_Engineering_Physics.pdf",
+      "original_name": "2025_10_06_14_20_28.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "1",
+        "subject": "Engineering Physics",
+        "code": "ENSH102",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENCT153_Advanced_Computer_Programming.pdf",
+      "original_name": "2025_10_09_08_56_10.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Advanced Computer Programming",
+        "code": "ENCT153",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENEE151_Electric_Circuit_II.pdf",
+      "original_name": "2025_10_09_08_56_30.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Electric Circuit II",
+        "code": "ENEE151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENEE152_Electrical_Installation_Workshop.pdf",
+      "original_name": "2025_10_09_08_56_55.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Electrical Installation Workshop",
+        "code": "ENEE152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENEX154_Electronics_Circuits.pdf",
+      "original_name": "2025_10_09_08_58_42.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Electronics Circuits",
+        "code": "ENEX154",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENSH151_Engineering_Mathematics_II.pdf",
+      "original_name": "2025_10_09_09_01_04.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Engineering Mathematics II",
+        "code": "ENSH151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem2_ENSH153_Engineering_Chemistry.pdf",
+      "original_name": "2025_10_09_09_01_32.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "2",
+        "subject": "Engineering Chemistry",
+        "code": "ENSH153",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENEE201_Instrumentation_and_Measurement.pdf",
+      "original_name": "2025_10_14_15_04_59.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Instrumentation and Measurement",
+        "code": "ENEE201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENEE202_Electrical_Machine_I.pdf",
+      "original_name": "2025_10_14_15_05_22.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Electrical Machine I",
+        "code": "ENEE202",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENEE203_Electrical_Engineering_Material.pdf",
+      "original_name": "2025_10_14_15_05_37.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Electrical Engineering Material",
+        "code": "ENEE203",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENEE205_Power_System_Analysis_I.pdf",
+      "original_name": "2025_10_14_15_06_06.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Power System Analysis I",
+        "code": "ENEE205",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENEX203_Logic_circuit.pdf",
+      "original_name": "2025_10_09_19_17_17.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Logic circuit",
+        "code": "ENEX203",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem3_ENSH201_Engineering_Mathematics_III.pdf",
+      "original_name": "2025_10_09_19_08_56.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "3",
+        "subject": "Engineering Mathematics III",
+        "code": "ENSH201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENEE251_Control_System.pdf",
+      "original_name": "2025_10_14_15_06_21.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Control System",
+        "code": "ENEE251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENEE252_Power_System_Analysis_II.pdf",
+      "original_name": "2025_10_14_15_07_32.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Power System Analysis II",
+        "code": "ENEE252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENEE253_Electric_Machine_II.pdf",
+      "original_name": "2025_10_14_15_06_38.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Electric Machine II",
+        "code": "ENEE253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENEX251_Microprocessors_and_Microcontrollers.pdf",
+      "original_name": "2025_10_14_15_07_13.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Microprocessors and Microcontrollers",
+        "code": "ENEX251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENSH251_Communication_English.pdf",
+      "original_name": "2025_10_09_19_09_56.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Communication English",
+        "code": "ENSH251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENSH252_Numerical_Methods.pdf",
+      "original_name": "2025_10_09_19_10_10.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Numerical Methods",
+        "code": "ENSH252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem4_ENSH253_Probability_and_Statistics.pdf",
+      "original_name": "2025_10_09_19_10_39.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "4",
+        "subject": "Probability and Statistics",
+        "code": "ENSH253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE301_Project_Engineering_and_Management_micro.pdf",
+      "original_name": "ENEE301ProjectEngineeringa_2026_03_26_16_14_09.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Project Engineering and Management",
+        "code": "ENEE301",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE301_Project_Engineering_and_Management.pdf",
+      "original_name": "2025_11_14_13_35_21.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Project Engineering and Management",
+        "code": "ENEE301",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE302_Power_Electronics_micro.pdf",
+      "original_name": "ENEE302PowerElectronics_2026_03_26_16_12_42.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Power Electronics",
+        "code": "ENEE302",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE302_Power_Electronics.pdf",
+      "original_name": "2025_11_14_13_35_35.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Power Electronics",
+        "code": "ENEE302",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE304_Digital_Control_System_micro.pdf",
+      "original_name": "ENEE304DigitalControlSyste_2026_03_26_16_12_59.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Digital Control System",
+        "code": "ENEE304",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE304_Digital_Control_System.pdf",
+      "original_name": "2025_11_14_13_35_48.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Digital Control System",
+        "code": "ENEE304",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE305_Switchgear_and_Protection_micro.pdf",
+      "original_name": "ENEE305SwitchgearandProtec_2026_03_26_16_13_12.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Switchgear and Protection",
+        "code": "ENEE305",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE305_Switchgear_and_Protection.pdf",
+      "original_name": "2025_11_14_13_36_01.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Switchgear and Protection",
+        "code": "ENEE305",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE306_Electric_Machine_Design_micro.pdf",
+      "original_name": "ENEE306ElectricMachineDesi_2026_03_26_16_13_25.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Electric Machine Design",
+        "code": "ENEE306",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEE306_Electric_Machine_Design.pdf",
+      "original_name": "2025_11_14_13_36_17.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Electric Machine Design",
+        "code": "ENEE306",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEX304_Digital_Signal_Processing_and_Application_micro.pdf",
+      "original_name": "ENEX304DigitalSignalProces_2026_03_23_10_48_35.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Digital Signal Processing and Application",
+        "code": "ENEX304",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENEX304_Digital_Signal_Processing_and_Application.pdf",
+      "original_name": "2025_11_14_13_36_35.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Digital Signal Processing and Application",
+        "code": "ENEX304",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENME310_Engineering_Thermodynamics_and_Heat_Transfer_micro.pdf",
+      "original_name": "updatedmicrosyllabusthermo_2026_03_31_10_07_22.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Engineering Thermodynamics and Heat Transfer",
+        "code": "ENME310",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem5_ENME310_Engineering_Thermodynamics_and_Heat_Transfer.pdf",
+      "original_name": "2025_11_30_15_22_44.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "5",
+        "subject": "Engineering Thermodynamics and Heat Transfer",
+        "code": "ENME310",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENCE356_Engineering_Economics.pdf",
+      "original_name": "ENCE356ENGINEERINGECONOMICS_2026_04_21_12_32_29.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Engineering Economics",
+        "code": "ENCE356",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE351_Industrial_Instrumentation_and_Automation.pdf",
+      "original_name": "ENEE351INDUSTRIALINSTRUMENT_2026_04_16_17_03_52.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Industrial Instrumentation and Automation",
+        "code": "ENEE351",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE352_Industrial_Electrification.pdf",
+      "original_name": "ENEE352INDUSTRIALELECTRIFI_2026_04_16_17_04_12.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Industrial Electrification",
+        "code": "ENEE352",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE353_Electrical_Drives.pdf",
+      "original_name": "ENEE353ELECTRICALDRIVES_2026_04_16_17_04_27.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Electrical Drives",
+        "code": "ENEE353",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE354_Electric_Power_Distribution_System.pdf",
+      "original_name": "ENEE354ELECTRICPOWERDISTRI_2026_04_16_17_04_40.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Electric Power Distribution System",
+        "code": "ENEE354",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE355_Minor_Project.pdf",
+      "original_name": "ENEE355MINORPROJECT_2026_04_16_17_16_41.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Minor Project",
+        "code": "ENEE355",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bel/BEL_Sem6_ENEE365-384_Elective_I.pdf",
+      "original_name": "ENEE365-384ElectiveI_2026_04_16_17_04_58.pdf",
+      "meta": {
+        "faculty": "BEL",
+        "semester": "6",
+        "subject": "Elective I",
+        "code": "ENEE365-384",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENCE101_Engineering_Mechanics.pdf",
+      "original_name": "2025_10_06_14_15_55.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Engineering Mechanics",
+        "code": "ENCE101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENCE102_Engineering_Geology_I.pdf",
+      "original_name": "2025_10_06_14_16_15.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Engineering Geology I",
+        "code": "ENCE102",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENCE103_Civil_Engineering_Materials.pdf",
+      "original_name": "2025_10_06_14_16_32.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Civil Engineering Materials",
+        "code": "ENCE103",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENCT101_Computer_Programming.pdf",
+      "original_name": "2025_10_06_14_17_14.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Computer Programming",
+        "code": "ENCT101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENEE103_Basic_Electrical_and_Electronics_Engineering.pdf",
+      "original_name": "2025_10_06_14_18_14.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Basic Electrical and Electronics Engineering",
+        "code": "ENEE103",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENSH101_Engineering_Mathematics_I.pdf",
+      "original_name": "2025_10_06_14_20_14.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Engineering Mathematics I",
+        "code": "ENSH101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem1_ENSH103_Engineering_Chemistry.pdf",
+      "original_name": "2025_10_06_14_20_43.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "1",
+        "subject": "Engineering Chemistry",
+        "code": "ENSH103",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENCE151_Strength_of_Materials.pdf",
+      "original_name": "2025_10_09_08_52_51.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Strength of Materials",
+        "code": "ENCE151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENCE152_Engineering_Geology_II.pdf",
+      "original_name": "2025_10_09_08_53_10.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Engineering Geology II",
+        "code": "ENCE152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENCE153_Engineering_Survey_I.pdf",
+      "original_name": "2025_10_09_08_53_26.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Engineering Survey I",
+        "code": "ENCE153",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENME158_Engineering_Drawing.pdf",
+      "original_name": "2025_10_09_09_00_49.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Engineering Drawing",
+        "code": "ENME158",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENSH151_Engineering_Mathematics_II.pdf",
+      "original_name": "2025_10_09_09_01_04.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Engineering Mathematics II",
+        "code": "ENSH151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem2_ENSH152_Engineering_Physics.pdf",
+      "original_name": "2025_10_09_09_01_18.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "2",
+        "subject": "Engineering Physics",
+        "code": "ENSH152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENCE201_Fluid_Mechanics.pdf",
+      "original_name": "2025_09_22_09_11_58.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Fluid Mechanics",
+        "code": "ENCE201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENCE202_Theory_of_Structures_I.pdf",
+      "original_name": "2025_09_22_09_12_17.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Theory of Structures I",
+        "code": "ENCE202",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENCE203_Engineering_Survey_II.pdf",
+      "original_name": "2025_09_22_09_12_33.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Engineering Survey II",
+        "code": "ENCE203",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENCE204_Computer_Aided_Civil_Drawing.pdf",
+      "original_name": "2025_09_22_09_12_48.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Computer Aided Civil Drawing",
+        "code": "ENCE204",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENCE205_Concrete_Technology.pdf",
+      "original_name": "2025_09_22_09_13_05.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Concrete Technology",
+        "code": "ENCE205",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENSH201_Engineering_Mathematics_III.pdf",
+      "original_name": "2025_10_09_19_08_56.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Engineering Mathematics III",
+        "code": "ENSH201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem3_ENSH202_Numerical_Methods.pdf",
+      "original_name": "2025_10_09_19_09_11.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "3",
+        "subject": "Numerical Methods",
+        "code": "ENSH202",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE251_Hydraulics.pdf",
+      "original_name": "2025_09_22_09_13_56.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Hydraulics",
+        "code": "ENCE251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE252_Theory_of_Structures_II.pdf",
+      "original_name": "2025_09_22_09_14_14.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Theory of Structures II",
+        "code": "ENCE252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE253_Soil_Mechanics.pdf",
+      "original_name": "2025_09_22_09_14_38.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Soil Mechanics",
+        "code": "ENCE253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE254_Water_Supply_Engineering.pdf",
+      "original_name": "2025_11_02_13_18_17.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Water Supply Engineering",
+        "code": "ENCE254",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE255_Building_Technology.pdf",
+      "original_name": "2025_09_22_09_15_17.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Building Technology",
+        "code": "ENCE255",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENCE256_Survey_Camp.pdf",
+      "original_name": "2025_09_22_09_15_33.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Survey Camp",
+        "code": "ENCE256",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENSH251_Communication_English.pdf",
+      "original_name": "2025_10_09_19_09_56.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Communication English",
+        "code": "ENSH251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem4_ENSH253_Probability_and_Statistics.pdf",
+      "original_name": "2025_10_09_19_10_39.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "4",
+        "subject": "Probability and Statistics",
+        "code": "ENSH253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE301_Design_of_Timber_and_Masonry_Structures.pdf",
+      "original_name": "2025_09_21_16_13_13.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Design of Timber and Masonry Structures",
+        "code": "ENCE301",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE302_Foundation_Engineering.pdf",
+      "original_name": "2025_09_21_16_13_34.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Foundation Engineering",
+        "code": "ENCE302",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE303_Design_of_Steel_Structures.pdf",
+      "original_name": "2025_09_21_16_13_56.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Design of Steel Structures",
+        "code": "ENCE303",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE304_Transportation_Engineering_I.pdf",
+      "original_name": "2025_09_21_16_14_34.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Transportation Engineering I",
+        "code": "ENCE304",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE305_Sanitary_Engineering.pdf",
+      "original_name": "2025_09_21_16_14_50.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Sanitary Engineering",
+        "code": "ENCE305",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE306_Engineering_Hydrology.pdf",
+      "original_name": "2025_09_21_16_15_09.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Engineering Hydrology",
+        "code": "ENCE306",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem5_ENCE307_Engineering_Economics.pdf",
+      "original_name": "2025_09_21_16_15_34.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "5",
+        "subject": "Engineering Economics",
+        "code": "ENCE307",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE351_Estimating_and_Costing.pdf",
+      "original_name": "2025_11_12_15_16_25.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Estimating and Costing",
+        "code": "ENCE351",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE352_Design_of_RCC_Structures.pdf",
+      "original_name": "2025_11_12_15_16_42.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Design of RCC Structures",
+        "code": "ENCE352",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE353_Transportation_Engineering_II.pdf",
+      "original_name": "2025_11_12_15_16_58.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Transportation Engineering II",
+        "code": "ENCE353",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE354_Irrigation_and_Drainage_Engineering.pdf",
+      "original_name": "2025_11_12_15_17_14.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Irrigation and Drainage Engineering",
+        "code": "ENCE354",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE355_Professional_and_Social_Engineering.pdf",
+      "original_name": "2025_11_12_15_17_29.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Professional and Social Engineering",
+        "code": "ENCE355",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bce/BCE_Sem6_ENCE365-389_Elective_I.pdf",
+      "original_name": "2025_11_12_15_28_46.pdf",
+      "meta": {
+        "faculty": "BCE",
+        "semester": "6",
+        "subject": "Elective I",
+        "code": "ENCE365-389",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENCT101_Computer_Programming.pdf",
+      "original_name": "2025_10_06_14_17_14.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Computer Programming",
+        "code": "ENCT101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENEX101_Fundamental_of_Electrical_and_Electronics_Engineering.pdf",
+      "original_name": "2025_10_06_14_18_38.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Fundamental of Electrical and Electronics Engineering",
+        "code": "ENEX101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENME101_Engineering_Drawing.pdf",
+      "original_name": "2025_10_06_14_19_09.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Engineering Drawing",
+        "code": "ENME101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENME103_Engineering_Mechanics_I.pdf",
+      "original_name": "2025_10_06_14_19_25.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Engineering Mechanics I",
+        "code": "ENME103",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENSH101_Engineering_Mathematics_I.pdf",
+      "original_name": "2025_10_06_14_20_14.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Engineering Mathematics I",
+        "code": "ENSH101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem1_ENSH103_Engineering_Chemistry.pdf",
+      "original_name": "2025_10_06_14_20_43.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "1",
+        "subject": "Engineering Chemistry",
+        "code": "ENSH103",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENME151_Engineering_Thermodynamics_I.pdf",
+      "original_name": "2025_10_09_08_59_18.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Engineering Thermodynamics I",
+        "code": "ENME151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENME152_Machine_Drawing.pdf",
+      "original_name": "2025_10_09_08_59_36.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Machine Drawing",
+        "code": "ENME152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENME153_Engineering_Mechanics_II.pdf",
+      "original_name": "2025_10_09_08_59_51.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Engineering Mechanics II",
+        "code": "ENME153",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENME155_Workshop_Technology.pdf",
+      "original_name": "2025_10_09_09_00_10.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Workshop Technology",
+        "code": "ENME155",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENSH151_Engineering_Mathematics_II.pdf",
+      "original_name": "2025_10_09_09_01_04.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Engineering Mathematics II",
+        "code": "ENSH151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem2_ENSH152_Engineering_Physics.pdf",
+      "original_name": "2025_10_09_09_01_18.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "2",
+        "subject": "Engineering Physics",
+        "code": "ENSH152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENME201_Material_Science.pdf",
+      "original_name": "2025_10_13_15_36_08.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Material Science",
+        "code": "ENME201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENME202_Manufacturing_and_Production_Processes.pdf",
+      "original_name": "2025_10_13_15_36_31.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Manufacturing and Production Processes",
+        "code": "ENME202",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENME203_Engineering_Thermodynamics_II.pdf",
+      "original_name": "2025_10_13_15_36_51.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Engineering Thermodynamics II",
+        "code": "ENME203",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENME204_Metrology.pdf",
+      "original_name": "2025_10_13_15_37_11.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Metrology",
+        "code": "ENME204",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENME205_Strength_of_Materials.pdf",
+      "original_name": "2025_10_13_15_37_27.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Strength of Materials",
+        "code": "ENME205",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem3_ENSH201_Engineering_Mathematics_III.pdf",
+      "original_name": "2025_10_09_19_08_56.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "3",
+        "subject": "Engineering Mathematics III",
+        "code": "ENSH201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENEE254_Electrical_Machines.pdf",
+      "original_name": "2025_10_13_15_34_12.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Electrical Machines",
+        "code": "ENEE254",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENME251_Mechanics_of_Solids.pdf",
+      "original_name": "2025_10_13_15_38_03.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Mechanics of Solids",
+        "code": "ENME251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENME252_Instrumentation_and_Sensors.pdf",
+      "original_name": "2025_10_13_15_38_21.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Instrumentation and Sensors",
+        "code": "ENME252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENME253_Computer_Aided_Design.pdf",
+      "original_name": "2025_10_13_15_38_38.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Computer Aided Design",
+        "code": "ENME253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENME254_Fluid_Mechanics_with_Engineering_Applications.pdf",
+      "original_name": "2025_10_13_15_38_55.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Fluid Mechanics with Engineering Applications",
+        "code": "ENME254",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem4_ENSH253_Probability_and_Statistics.pdf",
+      "original_name": "2025_10_09_19_10_39.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "4",
+        "subject": "Probability and Statistics",
+        "code": "ENSH253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENEE307_Control_System_and_Automation.pdf",
+      "original_name": "2025_11_12_12_57_03.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Control System and Automation",
+        "code": "ENEE307",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENME301_Automotive_Technology.pdf",
+      "original_name": "2025_11_12_12_57_24.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Automotive Technology",
+        "code": "ENME301",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENME302_Fluid_Machines.pdf",
+      "original_name": "2025_11_12_12_57_45.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Fluid Machines",
+        "code": "ENME302",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENME303_Theory_of_Machines_and_Mechanism.pdf",
+      "original_name": "2025_11_12_12_58_03.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Theory of Machines and Mechanism",
+        "code": "ENME303",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENME304_Organization_and_Management.pdf",
+      "original_name": "2025_11_12_12_58_45.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Organization and Management",
+        "code": "ENME304",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENSH301_Numerical_Methods.pdf",
+      "original_name": "2025_11_10_10_46_39.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Numerical Methods",
+        "code": "ENSH301",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem5_ENSH303_Technical_English.pdf",
+      "original_name": "2025_11_12_15_33_23.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "5",
+        "subject": "Technical English",
+        "code": "ENSH303",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME351_Industrial_Engineering_and_Management.pdf",
+      "original_name": "ENME351INDUSTRIALENGINEERIN_2026_04_21_12_06_56.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Industrial Engineering and Management",
+        "code": "ENME351",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME352_Heat_and_Mass_Transfer.pdf",
+      "original_name": "ENME352HEATANDMASSTRANSFE_2026_04_21_12_05_34.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Heat and Mass Transfer",
+        "code": "ENME352",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME353_Machine_Design_I.pdf",
+      "original_name": "ENME353MACHINEDESIGNI_2026_04_21_12_05_47.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Machine Design I",
+        "code": "ENME353",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME354_Machine_Dynamics.pdf",
+      "original_name": "ENME354MACHINEDYNAMICS_2026_04_21_12_04_04.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Machine Dynamics",
+        "code": "ENME354",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME355_Minor_Project.pdf",
+      "original_name": "ENME355MINORPROJECT_2026_04_21_12_06_00.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Minor Project",
+        "code": "ENME355",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME356_Professional_Engineering_Economics.pdf",
+      "original_name": "ENME356PROFESSIONALENGINEER_2026_04_21_12_05_22.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Professional Engineering Economics",
+        "code": "ENME356",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bmx/BMX_Sem6_ENME365-384_Elective_I.pdf",
+      "original_name": "ENME365-384ElectiveI_2026_04_21_12_11_21.pdf",
+      "meta": {
+        "faculty": "BMX",
+        "semester": "6",
+        "subject": "Elective I",
+        "code": "ENME365-384",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENCT101_Computer_Programming.pdf",
+      "original_name": "2025_10_06_14_17_14.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Computer Programming",
+        "code": "ENCT101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENEX101_Fundamental_of_Electrical_and_Electronics_Engineering.pdf",
+      "original_name": "2025_10_06_14_18_38.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Fundamental of Electrical and Electronics Engineering",
+        "code": "ENEX101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENME101_Engineering_Drawing.pdf",
+      "original_name": "2025_10_06_14_19_09.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Engineering Drawing",
+        "code": "ENME101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENME106_Engineering_Workshop.pdf",
+      "original_name": "2025_10_06_14_20_00.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Engineering Workshop",
+        "code": "ENME106",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENSH101_Engineering_Mathematics_I.pdf",
+      "original_name": "2025_10_06_14_20_14.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Engineering Mathematics I",
+        "code": "ENSH101",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem1_ENSH102_Engineering_Physics.pdf",
+      "original_name": "2025_10_06_14_20_28.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "1",
+        "subject": "Engineering Physics",
+        "code": "ENSH102",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem2_ENCT151_Object_Oriented_Programming.pdf",
+      "original_name": "2025_10_09_08_55_17.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Object Oriented Programming",
+        "code": "ENCT151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem2_ENEE154_Electrical_Circuits_and_Machines.pdf",
+      "original_name": "2025_10_09_08_57_36.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Electrical Circuits and Machines",
+        "code": "ENEE154",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem2_ENEX151_Electronic_Device_and_Circuits.pdf",
+      "original_name": "2025_10_09_08_57_54.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Electronic Device and Circuits",
+        "code": "ENEX151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem2_ENEX152_Digital_Logic.pdf",
+      "original_name": "2025_10_09_08_58_19.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Digital Logic",
+        "code": "ENEX152",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem2_ENSH151_Engineering_Mathematics_II.pdf",
+      "original_name": "2025_10_09_09_01_04.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "2",
+        "subject": "Engineering Mathematics II",
+        "code": "ENSH151",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENCT201_Computer_Graphics_and_Visualization.pdf",
+      "original_name": "2025_10_09_19_14_38.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Computer Graphics and Visualization",
+        "code": "ENCT201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENEE204_Control_System.pdf",
+      "original_name": "2025_10_14_15_05_52.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Control System",
+        "code": "ENEE204",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENEX201_Microprocessors.pdf",
+      "original_name": "2025_10_09_19_16_55.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Microprocessors",
+        "code": "ENEX201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENEX202_Advanced_Electronics.pdf",
+      "original_name": "2025_10_09_19_17_06.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Advanced Electronics",
+        "code": "ENEX202",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENSH201_Engineering_Mathematics_III.pdf",
+      "original_name": "2025_10_09_19_08_56.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Engineering Mathematics III",
+        "code": "ENSH201",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem3_ENSH204_Communication_English.pdf",
+      "original_name": "2025_10_09_19_09_42.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "3",
+        "subject": "Communication English",
+        "code": "ENSH204",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENCT251_Discrete_Structure.pdf",
+      "original_name": "2025_10_09_19_15_17.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Discrete Structure",
+        "code": "ENCT251",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENEX252_Instrumentation.pdf",
+      "original_name": "2025_10_09_19_16_01.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Instrumentation",
+        "code": "ENEX252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENEX253_Computer_Organization_Architecture.pdf",
+      "original_name": "2025_10_09_19_16_17.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Computer Organization & Architecture",
+        "code": "ENEX253",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENEX254_Electromagnetics.pdf",
+      "original_name": "2025_10_09_19_16_31.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Electromagnetics",
+        "code": "ENEX254",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENEX255_Signals_and_Systems.pdf",
+      "original_name": "2025_10_09_19_16_43.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Signals and Systems",
+        "code": "ENEX255",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem4_ENSH252_Numerical_Methods.pdf",
+      "original_name": "2025_10_09_19_10_10.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "4",
+        "subject": "Numerical Methods",
+        "code": "ENSH252",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENCT305_Artificial_Intelligence_micro.pdf",
+      "original_name": "ENCT305ArtificialIntelligen_2026_03_23_10_46_39.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Artificial Intelligence",
+        "code": "ENCT305",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENCT305_Artificial_Intelligence.pdf",
+      "original_name": "2025_11_12_13_12_17.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Artificial Intelligence",
+        "code": "ENCT305",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX301_Filter_Design_micro.pdf",
+      "original_name": "ENEX301FilterDesign_2026_03_23_10_46_52.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Filter Design",
+        "code": "ENEX301",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX301_Filter_Design.pdf",
+      "original_name": "2025_11_12_13_12_33.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Filter Design",
+        "code": "ENEX301",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX302_Embedded_Systems_micro.pdf",
+      "original_name": "ENEX302EmbeddedSystem_2026_03_23_10_47_07.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Embedded Systems",
+        "code": "ENEX302",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX302_Embedded_Systems.pdf",
+      "original_name": "2025_11_12_13_12_47.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Embedded Systems",
+        "code": "ENEX302",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX303_Propogation_and_Antennna_micro.pdf",
+      "original_name": "ENEX303PROPAGATIONANDANTEN_2026_03_23_10_47_40.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Propogation and Antennna",
+        "code": "ENEX303",
+        "instructor": "IOE",
+        "type": "Micro-Syllabus"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX303_Propogation_and_Antennna.pdf",
+      "original_name": "2025_11_12_13_13_00.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Propogation and Antennna",
+        "code": "ENEX303",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENEX325-344_Elective_I.pdf",
+      "original_name": "2025_11_28_11_02_19.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Elective I",
+        "code": "ENEX325-344",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem5_ENSH304_Probability_and_Statistics.pdf",
+      "original_name": "2025_11_10_10_47_06.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "5",
+        "subject": "Probability and Statistics",
+        "code": "ENSH304",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENCE356_Engineering_Economics.pdf",
+      "original_name": "ENCE356ENGINEERINGECONOMICS_2026_04_21_12_32_29.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "Engineering Economics",
+        "code": "ENCE356",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENCT355_ICT_Project_Management.pdf",
+      "original_name": "ENCT355ICTPROJECTMANAGEMEN_2026_04_25_10_09_50.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "ICT Project Management",
+        "code": "ENCT355",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENEX351_Communication_Systems.pdf",
+      "original_name": "ENEX351COMMUNICATIONSYSTEMS_2026_04_25_10_08_51.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "Communication Systems",
+        "code": "ENEX351",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENEX352_Telecommunication_and_Computer_Networks.pdf",
+      "original_name": "ENEX352TELECOMMUNICATIONAND_2026_04_25_10_09_08.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "Telecommunication and Computer Networks",
+        "code": "ENEX352",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENEX353_Minor_Project.pdf",
+      "original_name": "ENEX353MINORPROJECT_2026_04_28_09_26_11.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "Minor Project",
+        "code": "ENEX353",
+        "instructor": "IOE"
+      }
+    },
+    {
+      "category": "syllabus",
+      "path": "syllabus/ioe_bex/BEX_Sem6_ENEX385-399_Elective_II.pdf",
+      "original_name": "ENEX385-399ElectiveII_2026_04_25_10_11_36.pdf",
+      "meta": {
+        "faculty": "BEX",
+        "semester": "6",
+        "subject": "Elective II",
+        "code": "ENEX385-399",
+        "instructor": "IOE"
+      }
+    }
+  ]
+}

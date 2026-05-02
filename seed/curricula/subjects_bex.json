@@ -1,0 +1,66 @@
+{
+  "BEX": {
+    "1": [
+      "Computer Programming",
+      "Engineering Drawing",
+      "Engineering Mathematics I",
+      "Engineering Physics",
+      "Engineering Workshop",
+      "Fundamental of Electrical and Electronics Engineering"
+    ],
+    "2": [
+      "Digital Logic",
+      "Electrical Circuits and Machines",
+      "Electronic Device and Circuits",
+      "Engineering Chemistry",
+      "Engineering Mathematics II",
+      "Object Oriented Programming"
+    ],
+    "3": [
+      "Advanced Electronics",
+      "Communication English",
+      "Computer Graphics and Visualization",
+      "Control System",
+      "Engineering Mathematics III",
+      "Microprocessors"
+    ],
+    "4": [
+      "Computer Organization & Architecture",
+      "Discrete Structure",
+      "Electromagnetics",
+      "Instrumentation",
+      "Numerical Methods",
+      "Signals and Systems"
+    ],
+    "5": [
+      "Artificial Intelligence",
+      "Elective I",
+      "Embedded Systems",
+      "Filter Design",
+      "Probability and Statistics",
+      "Propogation and Antennna"
+    ],
+    "6": [
+      "Communication Systems",
+      "Elective II",
+      "Engineering Economics",
+      "ICT Project Management",
+      "Minor Project",
+      "Telecommunication and Computer Networks"
+    ],
+    "7": [
+      "Digital Signal Processing",
+      "Elective III",
+      "Project I",
+      "RF and Microwave Engineering",
+      "Robotics",
+      "Wireless Communication"
+    ],
+    "8": [
+      "Elective IV",
+      "Energy, Environment and Social Engineering",
+      "Internship**",
+      "Project II"
+    ]
+  }
+}

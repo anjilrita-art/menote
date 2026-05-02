@@ -1,0 +1,69 @@
+{
+  "BCE": {
+    "1": [
+      "Basic Electrical and Electronics Engineering",
+      "Civil Engineering Materials",
+      "Computer Programming",
+      "Engineering Chemistry",
+      "Engineering Geology I",
+      "Engineering Mathematics I",
+      "Engineering Mechanics"
+    ],
+    "2": [
+      "Engineering Drawing",
+      "Engineering Geology II",
+      "Engineering Mathematics II",
+      "Engineering Physics",
+      "Engineering Survey I",
+      "Strength of Materials"
+    ],
+    "3": [
+      "Computer Aided Civil Drawing",
+      "Concrete Technology",
+      "Engineering Mathematics III",
+      "Engineering Survey II",
+      "Fluid Mechanics",
+      "Numerical Methods",
+      "Theory of Structures I"
+    ],
+    "4": [
+      "Building Technology",
+      "Communication English",
+      "Hydraulics",
+      "Probability and Statistics",
+      "Soil Mechanics",
+      "Survey Camp",
+      "Theory of Structures II",
+      "Water Supply Engineering"
+    ],
+    "5": [
+      "Design of Steel Structures",
+      "Design of Timber and Masonry Structures",
+      "Engineering Economics",
+      "Engineering Hydrology",
+      "Foundation Engineering",
+      "Sanitary Engineering",
+      "Transportation Engineering I"
+    ],
+    "6": [
+      "Design of RCC Structures",
+      "Elective I",
+      "Estimating and Costing",
+      "Irrigation and Drainage Engineering",
+      "Professional and Social Engineering",
+      "Transportation Engineering II"
+    ],
+    "7": [
+      "Elective II",
+      "Elective III",
+      "Hydropower Engineering",
+      "Operations Research",
+      "Project and Construction Engineering",
+      "Project I"
+    ],
+    "8": [
+      "Internship",
+      "Project II"
+    ]
+  }
+}
