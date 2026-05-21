@@ -13,6 +13,8 @@ from uuid import uuid4
 
 from flask import Flask, jsonify, redirect, request, send_file, send_from_directory
 
+from drive_links import normalize_external_url
+
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
@@ -119,6 +121,11 @@ def home():
     return send_from_directory(BASE_DIR, "studyhub.html")
 
 
+@app.get("/health")
+def health():
+    return jsonify({"ok": True})
+
+
 @app.get("/api/files/<category>")
 def list_files(category: str):
     try:
@@ -132,6 +139,16 @@ def list_files(category: str):
     return jsonify({"files": files})
 
 
+def _parse_external_url(raw: str | None) -> str | None:
+    value = (raw or "").strip()
+    if not value:
+        return None
+    try:
+        return normalize_external_url(value)
+    except ValueError as exc:
+        raise ValueError(str(exc)) from exc
+
+
 @app.post("/api/upload/<category>")
 def upload(category: str):
     try:
@@ -139,33 +156,46 @@ def upload(category: str):
     except ValueError:
         return jsonify({"error": "Invalid category"}), 400
 
-    if "file" not in request.files:
-        return jsonify({"error": "Missing file"}), 400
+    try:
+        external_url = _parse_external_url(request.form.get("external_url"))
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
 
-    f = request.files["file"]
-    if not f or not f.filename:
-        return jsonify({"error": "Empty filename"}), 400
+    f = request.files.get("file")
+    has_file = bool(f and f.filename)
 
-    original_name = f.filename
-    safe_original = _safe_filename(original_name)
-    file_id = uuid4().hex
-    stored_name = f"{file_id}__{safe_original}"
+    if not has_file and not external_url:
+        return jsonify({"error": "Provide a file upload or a Google Drive / external link"}), 400
 
-    # Best-effort content type detection
-    content_type = f.mimetype or ""
-    if not content_type or content_type == "application/octet-stream":
-        guessed, _ = mimetypes.guess_type(safe_original)
-        content_type = guessed or "application/octet-stream"
-
-    # Metadata (all non-file form fields)
     meta: dict[str, Any] = {}
     for key in request.form:
-        meta[key] = request.form.get(key)
+        if key != "external_url":
+            meta[key] = request.form.get(key)
 
-    _ensure_dirs()
-    dst = UPLOADS_DIR / category / stored_name
-    f.save(dst)
-    size_bytes = dst.stat().st_size
+    file_id = uuid4().hex
+    stored_name = ""
+    content_type = "application/octet-stream"
+    size_bytes = 0
+    original_name = (request.form.get("title") or request.form.get("original_name") or "external-link").strip()
+
+    if has_file:
+        original_name = f.filename or original_name
+        safe_original = _safe_filename(original_name)
+        stored_name = f"{file_id}__{safe_original}"
+        content_type = f.mimetype or ""
+        if not content_type or content_type == "application/octet-stream":
+            guessed, _ = mimetypes.guess_type(safe_original)
+            content_type = guessed or "application/octet-stream"
+        _ensure_dirs()
+        dst = UPLOADS_DIR / category / stored_name
+        f.save(dst)
+        size_bytes = dst.stat().st_size
+    elif external_url:
+        guessed_name = (request.form.get("original_name") or "").strip()
+        if guessed_name:
+            original_name = guessed_name
+        elif not original_name or original_name == "external-link":
+            original_name = "Google Drive file"
 
     entry = FileEntry(
         id=file_id,
@@ -176,6 +206,7 @@ def upload(category: str):
         size_bytes=size_bytes,
         uploaded_at=_now_iso_utc(),
         meta=meta,
+        external_url=external_url,
     )
 
     index = _load_index()
@@ -247,6 +278,11 @@ def community_create_post():
     if not title:
         return jsonify({"error": "Title is required"}), 400
 
+    try:
+        external_url = _parse_external_url(request.form.get("external_url"))
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
     attachment = request.files.get("file")
     stored_name = None
     original_name = None
@@ -268,6 +304,9 @@ def community_create_post():
         dst = COMMUNITY_UPLOADS_DIR / stored_name
         attachment.save(dst)
         size_bytes = dst.stat().st_size
+    elif external_url:
+        post_id = uuid4().hex
+        original_name = (request.form.get("file_name") or title or "Google Drive file").strip()
     else:
         post_id = uuid4().hex
 
@@ -284,12 +323,13 @@ def community_create_post():
         },
         "attachment": (
             None
-            if not stored_name
+            if not stored_name and not external_url
             else {
                 "stored_name": stored_name,
                 "original_name": original_name,
                 "content_type": content_type,
                 "size_bytes": size_bytes,
+                "external_url": external_url,
             }
         ),
     }
@@ -326,7 +366,17 @@ def community_download(post_id: str):
     if not post or not post.get("attachment"):
         return jsonify({"error": "File not found"}), 404
 
-    stored_name = post["attachment"]["stored_name"]
+    att = post["attachment"]
+    ext = att.get("external_url")
+    if ext:
+        parsed = urlparse(ext)
+        if parsed.scheme in {"http", "https"}:
+            return redirect(ext, code=302)
+        return jsonify({"error": "Invalid external link"}), 400
+
+    stored_name = att["stored_name"]
+    if not stored_name:
+        return jsonify({"error": "File not found"}), 404
     original_name = post["attachment"]["original_name"] or "file"
     content_type = post["attachment"].get("content_type") or None
 
@@ -346,5 +396,7 @@ def community_download(post_id: str):
 
 if __name__ == "__main__":
     _ensure_dirs()
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    port = int(os.environ.get("PORT", "8000"))
+    debug = os.environ.get("FLASK_DEBUG", "").lower() in {"1", "true", "yes"}
+    app.run(host="0.0.0.0", port=port, debug=debug)
 

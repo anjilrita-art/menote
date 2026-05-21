@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+from drive_links import normalize_external_url
+
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
@@ -108,6 +110,8 @@ def seed_from_manifest(manifest_path: Path) -> int:
         external_url = item.get("external_url")
         if external_url is not None and not isinstance(external_url, str):
             raise ValueError("'external_url' must be a string when provided")
+        if external_url:
+            external_url = normalize_external_url(external_url)
 
         rel_path = item.get("path")
         if external_url:

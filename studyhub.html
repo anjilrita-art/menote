@@ -776,6 +776,11 @@
                                 <label for="community-file">Attach file (optional)</label>
                                 <input type="file" id="community-file" accept=".pdf,.docx,.txt,.ppt,.pptx,.zip,.rar,.jpg,.png">
                             </div>
+                            <div class="form-group">
+                                <label for="community-drive-url">Or Google Drive link (recommended for sharing)</label>
+                                <input type="url" id="community-drive-url" placeholder="https://drive.google.com/file/d/.../view?usp=sharing">
+                            </div>
+                            <p class="notes-hint" style="margin:0;">Set the Drive file to &quot;Anyone with the link&quot; so friends can download it.</p>
                             <button type="submit" class="upload-btn" style="grid-column: 1 / -1;">Post</button>
                         </form>
                     </div>
@@ -819,17 +824,20 @@
             });
         });
 
-        // If you open this HTML via VSCode Live Server or file://, the API may be on a different origin.
-        // You can also force it with `?api=http://127.0.0.1:8000`.
+        // API base: same-origin when the site is hosted (Render, etc.).
+        // Override with ?api=https://your-app.onrender.com if needed.
         const API_BASE = (() => {
             const params = new URLSearchParams(window.location.search || '');
             const fromQuery = (params.get('api') || '').trim();
             if (fromQuery) return fromQuery.replace(/\/+$/, '');
             if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000';
-            // If you're already on the Flask server (served from /), use same-origin.
-            if (window.location.port === '8000') return '';
-            // Common dev setup: Live Server on 5500, Flask on 8000.
-            return 'http://127.0.0.1:8000';
+            const host = window.location.hostname;
+            const port = window.location.port;
+            // VS Code Live Server dev: HTML on 5500, Flask on 8000.
+            if ((host === 'localhost' || host === '127.0.0.1') && (port === '5500' || port === '5501')) {
+                return 'http://127.0.0.1:8000';
+            }
+            return '';
         })();
         const FACULTIES = ['BEL', 'BCT', 'BEX', 'BMX', 'BCE'];
         const SEMESTERS = ['1','2','3','4','5','6','7','8'];
@@ -1379,12 +1387,18 @@
                 actions.appendChild(down);
 
                 if (p.attachment) {
+                    const ext = p.attachment.external_url;
                     const dl = document.createElement('button');
                     dl.className = 'download-btn';
-                    dl.textContent = '⬇ Download';
-                    dl.addEventListener('click', () => {
-                        window.location.href = `${API_BASE}/community/download/${encodeURIComponent(p.id)}`;
-                    });
+                    if (ext) {
+                        dl.textContent = '↗ Open';
+                        dl.addEventListener('click', () => window.open(ext, '_blank', 'noopener'));
+                    } else {
+                        dl.textContent = '⬇ Download';
+                        dl.addEventListener('click', () => {
+                            window.location.href = `${API_BASE}/community/download/${encodeURIComponent(p.id)}`;
+                        });
+                    }
                     actions.appendChild(dl);
                 }
 
@@ -1421,6 +1435,11 @@
                 const title = document.getElementById('community-title').value.trim();
                 const body = document.getElementById('community-body').value.trim();
                 const file = document.getElementById('community-file').files[0];
+                const driveUrl = document.getElementById('community-drive-url').value.trim();
+
+                if (file && driveUrl) {
+                    throw new Error('Use either a file upload or a Google Drive link, not both.');
+                }
 
                 form.append('faculty', faculty);
                 form.append('semester', semester);
@@ -1428,6 +1447,7 @@
                 form.append('title', title);
                 form.append('body', body);
                 if (file) form.append('file', file);
+                if (driveUrl) form.append('external_url', driveUrl);
 
                 const res = await fetch(`${API_BASE}/api/community/posts`, { method: 'POST', body: form });
                 const data = await res.json().catch(() => ({}));

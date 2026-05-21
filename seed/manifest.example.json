@@ -34,6 +34,17 @@
         "code": "MTH101",
         "instructor": "Department"
       }
+    },
+    {
+      "category": "notes",
+      "external_url": "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing",
+      "original_name": "Notes hosted on Google Drive.pdf",
+      "meta": {
+        "faculty": "BCT",
+        "semester": "1",
+        "subject": "Mathematics I",
+        "topic": "Unit 1 (Drive)"
+      }
     }
   ]
 }
