@@ -1,0 +1,16 @@
+# Optional: auto-redeploy on push after you add RENDER_DEPLOY_HOOK_URL in GitHub repo secrets.
+# Create the Render web service once via DEPLOY.md, then in Render → Service → Settings → Deploy Hook,
+# copy the URL and add it as secret RENDER_DEPLOY_HOOK_URL.
+name: Redeploy Render
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    if: ${{ secrets.RENDER_DEPLOY_HOOK_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
