@@ -6,11 +6,13 @@
 
 Push to `main` → GitHub Actions deploys automatically.
 
-If the site 404s the first time:
+If the site 404s (one-time setup):
 
 1. Open https://github.com/anjilrita-art/menote/settings/pages
-2. Under **Build and deployment**, set **Source** to **Deploy from a branch**
-3. Branch: **gh-pages** / folder **/(root)**
+2. **Build and deployment** → **Deploy from a branch**
+3. Choose either:
+   - **main** branch, **/docs** folder, or
+   - **gh-pages** branch, **/(root)**
 4. Save, wait 1–2 minutes, then open https://anjilrita-art.github.io/menote/
 
 Share only this link — not `127.0.0.1` and not the raw HTML file.

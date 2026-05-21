@@ -1,9 +1,11 @@
-# Public website — anyone can browse and download all materials.
+# Public website — sync studyhub.html → docs/ and publish to gh-pages.
 name: Deploy public StudyHub site
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
@@ -17,8 +19,18 @@ jobs:
 
       - name: Build static site
         run: |
-          mkdir -p _site
+          mkdir -p _site docs
           cp studyhub.html _site/index.html
+          cp studyhub.html docs/index.html
+          touch docs/.nojekyll
+
+      - name: Commit docs folder (for Pages: main /docs)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet && echo "docs unchanged" || git commit -m "Update public site in docs/ [skip ci]"
+          git push
 
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
