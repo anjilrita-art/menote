@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub -Resource Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #0f172a;
+            min-height: 100vh;
+            background:
+                radial-gradient(900px 520px at 14% 18%, rgba(99, 102, 241, 0.22), transparent 60%),
+                radial-gradient(760px 420px at 88% 26%, rgba(168, 85, 247, 0.18), transparent 58%),
+                radial-gradient(860px 520px at 55% 96%, rgba(16, 185, 129, 0.12), transparent 55%),
+                linear-gradient(180deg, #0b1220 0%, #0b1220 260px, #f6f7fb 260px, #f6f7fb 100%);
+            background-attachment: fixed;
+        }
+
+        /* subtle pattern overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+            background-size: 22px 22px;
+            opacity: 0.22;
+            mix-blend-mode: overlay;
+        }
+
+        header {
+            position: relative;
+            color: rgba(255, 255, 255, 0.94);
+            padding: 2.25rem 1.25rem 1.75rem;
+            text-align: center;
+            margin-bottom: 0;
+            background: transparent;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(168, 85, 247, 0.85) 50%, rgba(15, 23, 42, 0.65) 100%);
+            opacity: 0.65;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header .subtitle {
+            margin-top: 10px;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .public-banner {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .public-banner a {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.65rem 1rem;
+            display: flex;
+            gap: 1rem;
+            border-bottom: 0.5px solid #e0e0e0;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 14px;
+            color: #999;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover {
+            color: #667eea;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        main {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 0 0 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .upload-section {
+            background: #f9f9f9;
+            border: 0.5px solid #ddd;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Make "Upload New Notes" compact (notes tab only) */
+        .notes-upload-section {
+            padding: 0.9rem;
+            margin-bottom: 0.9rem;
+            max-width: 520px;
+        }
+
+        .notes-upload-section .form-grid {
+            gap: 10px;
+        }
+
+        .notes-upload-section .form-group label {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .notes-upload-section .form-group input,
+        .notes-upload-section .form-group select {
+            padding: 7px 10px;
+            font-size: 13px;
+        }
+
+        .notes-upload-section .upload-btn {
+            padding: 9px 14px;
+            font-size: 13px;
+        }
+
+        .upload-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 1rem;
+            color: #333;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 8px 12px;
+            border: 0.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .upload-btn:active {
+            transform: translateY(0);
+        }
+
+        .files-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        /* We now render results under the subject selector */
+        .bottom-results {
+            display: none !important;
+        }
+
+        .file-card {
+            background: white;
+            border: 0.5px solid #ddd;
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .file-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .file-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .file-card-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .file-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .file-card-meta {
+            font-size: 13px;
+            color: #999;
+            margin: 4px 0 0;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .file-card-footer {
+            font-size: 13px;
+            color: #999;
+            margin: 0;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 0.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .notes-nav {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .notes-nav-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .notes-nav-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+            min-width: 90px;
+        }
+
+        .chip-btn {
+            border: 0.5px solid #ddd;
+            background: white;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .chip-btn:hover {
+            border-color: #667eea;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .chip-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            color: white;
+        }
+
+        .notes-controls-card {
+            background: white;
+            border: 0.5px solid #ddd;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .notes-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Make the navigator feel "bigger" */
+        #notes-nav .notes-nav-label {
+            font-size: 13px;
+        }
+
+        #notes-nav .chip-btn {
+            padding: 10px 14px;
+            font-size: 14px;
+        }
+
+        #notes-nav .notes-nav-row {
+            gap: 12px;
+        }
+
+        #notes-nav {
+            gap: 14px;
+        }
+
+        /* Reusable: compact upload + big navigator for other tabs too */
+        .compact-upload {
+            padding: 0.9rem;
+            margin-bottom: 0.9rem;
+            max-width: 520px;
+        }
+
+        .compact-upload .form-grid {
+            gap: 10px;
+        }
+
+        .compact-upload .form-group label {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .compact-upload .form-group input,
+        .compact-upload .form-group select {
+            padding: 7px 10px;
+            font-size: 13px;
+        }
+
+        .compact-upload .upload-btn {
+            padding: 9px 14px;
+            font-size: 13px;
+        }
+
+        .big-controls {
+            background: white;
+            border: 0.5px solid #ddd;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .big-controls .notes-nav-label {
+            font-size: 13px;
+        }
+
+        .big-controls .chip-btn {
+            padding: 10px 14px;
+            font-size: 14px;
+        }
+
+        .big-controls .notes-nav-row {
+            gap: 12px;
+        }
+
+        .big-controls .notes-nav {
+            gap: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .file-card-header {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+
+            nav {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .notes-upload-section {
+                max-width: 100%;
+            }
+
+            .compact-upload {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>StudyHub</h1>
+        <div class="subtitle">A simple resource hub for notes, past papers, and syllabi</div>
+        <div class="public-banner" id="public-banner">
+            Public site — share this link so anyone can browse and download materials.
+            <a id="public-share-link" href="#">Loading…</a>
+        </div>
+    </header>
+
+    <nav>
+        <button class="tab-btn active" data-tab="notes">Notes</button>
+        <button class="tab-btn" data-tab="past-papers">Past Papers</button>
+        <button class="tab-btn" data-tab="syllabus">Syllabus</button>
+        <button class="tab-btn" data-tab="community">Community</button>
+    </nav>
+
+    <main>
+        <!-- NOTES SECTION -->
+        <section class="tab-content active" id="notes">
+            <h2>Study Notes</h2>
+            <div class="success-message" id="notes-success"></div>
+            <div class="error-message" id="notes-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="notes-controls-card">
+                <div class="notes-nav" id="notes-nav">
+                    <div class="notes-nav-row" id="notes-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="notes-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="notes-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectSubject('__all__')">All</button>
+                        <span id="notes-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">
+                    Tip: Upload notes with Faculty + Semester, then use these buttons to filter and download.
+                </div>
+                <div id="notes-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="notes-search" placeholder="Search notes by subject or topic...">
+            </div>
+
+            <!-- Notes List -->
+            <div id="notes-list" class="files-list bottom-results">
+                <div class="empty-state" id="notes-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No notes uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAST PAPERS SECTION -->
+        <section class="tab-content" id="past-papers">
+            <h2>Past Exam Papers</h2>
+            <div class="success-message" id="papers-success"></div>
+            <div class="error-message" id="papers-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="big-controls">
+                <div class="notes-nav" id="papers-nav">
+                    <div class="notes-nav-row" id="papers-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectPapersFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectPapersFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectPapersFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectPapersFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectPapersFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="papers-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectPapersSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectPapersSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectPapersSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectPapersSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectPapersSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectPapersSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectPapersSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectPapersSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="papers-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectPapersSubject('__all__')">All</button>
+                        <span id="papers-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">Pick Faculty + Semester to filter past papers, then download.</div>
+                <div id="papers-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="papers-search" placeholder="Search papers by subject or year...">
+            </div>
+
+            <!-- Papers List -->
+            <div id="papers-list" class="files-list bottom-results">
+                <div class="empty-state" id="papers-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No past papers uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYLLABUS SECTION -->
+        <section class="tab-content" id="syllabus">
+            <h2>Course Syllabi</h2>
+            <div class="success-message" id="syllabus-success"></div>
+            <div class="error-message" id="syllabus-error"></div>
+
+            <!-- Faculty → Semester → Subject navigation -->
+            <div class="big-controls">
+                <div class="notes-nav" id="syllabus-nav">
+                    <div class="notes-nav-row" id="syllabus-faculty-row">
+                        <div class="notes-nav-label">Faculty</div>
+                        <button type="button" class="chip-btn" data-faculty="BEL" onclick="selectSyllabusFaculty('BEL')">BEL</button>
+                        <button type="button" class="chip-btn" data-faculty="BCT" onclick="selectSyllabusFaculty('BCT')">BCT</button>
+                        <button type="button" class="chip-btn" data-faculty="BEX" onclick="selectSyllabusFaculty('BEX')">BEX</button>
+                        <button type="button" class="chip-btn" data-faculty="BMX" onclick="selectSyllabusFaculty('BMX')">BMX</button>
+                        <button type="button" class="chip-btn" data-faculty="BCE" onclick="selectSyllabusFaculty('BCE')">BCE</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="syllabus-semester-row">
+                        <div class="notes-nav-label">Semester</div>
+                        <button type="button" class="chip-btn" data-semester="1" onclick="selectSyllabusSemester('1')">1</button>
+                        <button type="button" class="chip-btn" data-semester="2" onclick="selectSyllabusSemester('2')">2</button>
+                        <button type="button" class="chip-btn" data-semester="3" onclick="selectSyllabusSemester('3')">3</button>
+                        <button type="button" class="chip-btn" data-semester="4" onclick="selectSyllabusSemester('4')">4</button>
+                        <button type="button" class="chip-btn" data-semester="5" onclick="selectSyllabusSemester('5')">5</button>
+                        <button type="button" class="chip-btn" data-semester="6" onclick="selectSyllabusSemester('6')">6</button>
+                        <button type="button" class="chip-btn" data-semester="7" onclick="selectSyllabusSemester('7')">7</button>
+                        <button type="button" class="chip-btn" data-semester="8" onclick="selectSyllabusSemester('8')">8</button>
+                    </div>
+
+                    <div class="notes-nav-row" id="syllabus-subject-row">
+                        <div class="notes-nav-label">Subject</div>
+                        <button type="button" class="chip-btn active" data-subject="__all__" onclick="selectSyllabusSubject('__all__')">All</button>
+                        <span id="syllabus-subject-dynamic"></span>
+                    </div>
+                </div>
+                <div class="notes-hint">Pick Faculty + Semester to filter syllabi, then download.</div>
+                <div id="syllabus-subject-files" class="files-list" style="margin-top: 14px;"></div>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="syllabus-search" placeholder="Search syllabus by course or instructor...">
+            </div>
+
+            <!-- Syllabus List -->
+            <div id="syllabus-list" class="files-list bottom-results">
+                <div class="empty-state" id="syllabus-empty">
+                    <div class="empty-state-icon">📂</div>
+                    <div>No syllabi uploaded yet.</div>
+                </div>
+            </div>
+        </section>
+        <!-- COMMUNITY SECTION -->
+        <section class="tab-content" id="community">
+            <h2>Community</h2>
+            <div class="success-message" id="community-success"></div>
+            <div class="error-message" id="community-error"></div>
+
+            <div class="big-controls">
+                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between;">
+                    <div style="min-width:260px; flex:1;">
+                        <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Share a resource</div>
+                        <form class="form-grid" id="community-form" onsubmit="createPost(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="community-faculty">Faculty</label>
+                                    <select id="community-faculty">
+                                        <option value="">Any</option>
+                                        <option value="BEL">BEL</option>
+                                        <option value="BCT">BCT</option>
+                                        <option value="BEX">BEX</option>
+                                        <option value="BMX">BMX</option>
+                                        <option value="BCE">BCE</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="community-semester">Semester</label>
+                                    <select id="community-semester">
+                                        <option value="">Any</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="community-subject">Subject (optional)</label>
+                                <input type="text" id="community-subject" placeholder="e.g., Electric Circuit II, Hydraulics">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-title">Title</label>
+                                <input type="text" id="community-title" placeholder="e.g., Hydraulics notes (unit 1-3)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="community-body">Description (optional)</label>
+                                <input type="text" id="community-body" placeholder="Short description...">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-file">Attach file (optional)</label>
+                                <input type="file" id="community-file" accept=".pdf,.docx,.txt,.ppt,.pptx,.zip,.rar,.jpg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-drive-url">Or Google Drive link (recommended for sharing)</label>
+                                <input type="url" id="community-drive-url" placeholder="https://drive.google.com/file/d/.../view?usp=sharing">
+                            </div>
+                            <p class="notes-hint" style="margin:0;">Set the Drive file to &quot;Anyone with the link&quot; so friends can download it.</p>
+                            <button type="submit" class="upload-btn" style="grid-column: 1 / -1;">Post</button>
+                        </form>
+                    </div>
+                    <div style="min-width:260px; flex:1;">
+                        <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Browse</div>
+                        <div class="search-box" style="margin-bottom:0;">
+                            <input type="text" id="community-search" placeholder="Search posts...">
+                        </div>
+                        <div class="notes-hint">Students can upload resources here and vote them up/down.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="community-list" class="files-list">
+                <div class="empty-state" id="community-empty">
+                    <div class="empty-state-icon">💬</div>
+                    <div>No community posts yet.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const tab = e.target.getAttribute('data-tab');
+                
+                // Hide all tabs
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                
+                // Show selected tab
+                document.getElementById(tab).classList.add('active');
+                
+                // Add active class to clicked button
+                e.target.classList.add('active');
+            });
+        });
+
+        // Public materials are stored in GitHub; this repo powers downloads for everyone.
+        const GITHUB_REPO = 'anjilrita-art/menote';
+        const GITHUB_BRANCH = 'main';
+        const IS_GITHUB_PAGES = /\.github\.io$/i.test(window.location.hostname);
+        const PUBLIC_SITE_URL = `https://${GITHUB_REPO.split('/')[0]}.github.io/${GITHUB_REPO.split('/')[1]}/`;
+
+        function githubRawPath(path) {
+            return `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}/${path.replace(/^\/+/, '')}`;
+        }
+
+        // API base: same-origin when hosted on Render; empty on GitHub Pages (uses GitHub raw).
+        const API_BASE = (() => {
+            const params = new URLSearchParams(window.location.search || '');
+            const fromQuery = (params.get('api') || '').trim();
+            if (fromQuery) return fromQuery.replace(/\/+$/, '');
+            if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000';
+            if (IS_GITHUB_PAGES) return '';
+            const host = window.location.hostname;
+            const port = window.location.port;
+            if ((host === 'localhost' || host === '127.0.0.1') && (port === '5500' || port === '5501')) {
+                return 'http://127.0.0.1:8000';
+            }
+            return '';
+        })();
+
+        (function setupPublicBanner() {
+            const link = document.getElementById('public-share-link');
+            const banner = document.getElementById('public-banner');
+            if (!link || !banner) return;
+            const shareUrl = IS_GITHUB_PAGES ? window.location.href.split('?')[0] : PUBLIC_SITE_URL;
+            link.href = shareUrl;
+            link.textContent = shareUrl;
+            if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                banner.innerHTML = 'Local preview — share the public link: <a href="' + PUBLIC_SITE_URL + '">' + PUBLIC_SITE_URL + '</a>';
+            }
+        })();
+        const FACULTIES = ['BEL', 'BCT', 'BEX', 'BMX', 'BCE'];
+        const SEMESTERS = ['1','2','3','4','5','6','7','8'];
+
+        const SUBJECTS_BY_FAC_SEM = {
+            BEL: {
+                '1': [
+                    'Engineering Mathematics I',
+                    'Engineering Physics',
+                    'Computer Programming',
+                    'Engineering Drawing',
+                    'Applied Mechanics',
+                    'Electric Circuit I'
+                ],
+                '2': [
+                    'Engineering Mathematics II',
+                    'Engineering Chemistry',
+                    'Electronics Circuits',
+                    'Advanced Computer Programming',
+                    'Electric Circuit II',
+                    'Electrical Installation Workshop'
+                ],
+                '3': [
+                    'Engineering Mathematics III',
+                    'Instrumentation and Measurement',
+                    'Electrical Machine I',
+                    'Electrical Engineering Material',
+                    'Power System Analysis I',
+                    'Logic circuit'
+                ],
+                '4': [
+                    'Communication English',
+                    'Numerical Methods',
+                    'Probability and Statistics',
+                    'Microprocessors and Microcontrollers',
+                    'Control System',
+                    'Power System Analysis II',
+                    'Electric Machine II'
+                ],
+                '5': [
+                    'Digital Signal Processing and Application',
+                    'Engineering Thermodynamics and Heat Transfer',
+                    'Project Engineering and Management',
+                    'Power Electronics',
+                    'Digital Control System',
+                    'Switchgear and Protection',
+                    'Electric Machine Design'
+                ],
+                '6': [
+                    'Engineering Economics',
+                    'Industrial Instrumentation and Automation',
+                    'Industrial Electrification',
+                    'Electrical Drives',
+                    'Electric Power Distribution System',
+                    'Minor Project',
+                    'Elective I'
+                ],
+                '7': [
+                    'Power Plant Engineering',
+                    'Power System Operation and Control',
+                    'High Voltage Engineering',
+                    'Transmission System Design',
+                    'Elective II',
+                    'Elective III',
+                    'Project I'
+                ],
+                '8': [
+                    'Engineering Profession and Society',
+                    'Internship',
+                    'Project II'
+                ]
+            },
+            BCT: {
+                '1': [
+                    'Engineering Mathematics I',
+                    'Engineering Physics',
+                    'Computer Programming',
+                    'Engineering Drawing',
+                    'Engineering Workshop',
+                    'Fundamental of Electrical and Electronics Engineering'
+                ],
+                '2': [
+                    'Engineering Mathematics II',
+                    'Engineering Chemistry',
+                    'Object Oriented Programming',
+                    'Digital Logic',
+                    'Electronic Device and Circuits',
+                    'Electrical Circuits and Machines'
+                ],
+                '3': [
+                    'Engineering Mathematics III',
+                    'Communication English',
+                    'Computer Graphics and Visualization',
+                    'Foundation of Data Science',
+                    'Theory of Computation',
+                    'Microprocessors'
+                ],
+                '4': [
+                    'Numerical Methods',
+                    'Instrumentation',
+                    'Electromagnetics',
+                    'Data Structure and Algorithm',
+                    'Data Communication',
+                    'Operating System'
+                ],
+                '5': [
+                    'Probability and Statistics',
+                    'Database Management System',
+                    'Web Application Programming',
+                    'Computer Organization and Architecture',
+                    'Computer Networks',
+                    'Elective I'
+                ],
+                '6': [
+                    'Engineering Economics',
+                    'Artificial Intelligence',
+                    'Software Engineering',
+                    'Simulation and Modeling',
+                    'Minor Project',
+                    'Elective II'
+                ],
+                '7': [
+                    'Digital Signal Analysis and Processing',
+                    'Distributed and Cloud Computing',
+                    'ICT Project Management',
+                    'Energy, Environment and Social Engineering',
+                    'Elective III',
+                    'Project I'
+                ],
+                '8': [
+                    'Network and Cyber Security',
+                    'Elective IV',
+                    'Internship',
+                    'Project II'
+                ]
+            },
+            BCE: {
+                '1': [
+                    'Engineering Mathematics I',
+                    'Engineering Chemistry',
+                    'Computer Programming',
+                    'Basic Electrical and Electronics Engineering',
+                    'Engineering Mechanics',
+                    'Engineering Geology I',
+                    'Civil Engineering Materials'
+                ],
+                '2': [
+                    'Engineering Mathematics II',
+                    'Engineering Physics',
+                    'Engineering Drawing',
+                    'Strength of Materials',
+                    'Engineering Geology II',
+                    'Engineering Survey I'
+                ],
+                '3': [
+                    'Engineering Mathematics III',
+                    'Numerical Methods',
+                    'Fluid Mechanics',
+                    'Theory of Structures I',
+                    'Engineering Survey II',
+                    'Computer Aided Civil Drawing',
+                    'Concrete Technology'
+                ],
+                '4': [
+                    'Communication English',
+                    'Probability and Statistics',
+                    'Hydraulics',
+                    'Theory of Structures II',
+                    'Soil Mechanics',
+                    'Water Supply Engineering',
+                    'Building Technology',
+                    'Survey Camp'
+                ],
+                '5': [
+                    'Design of Timber and Masonry Structures',
+                    'Foundation Engineering',
+                    'Design of Steel Structures',
+                    'Transportation Engineering I',
+                    'Sanitary Engineering',
+                    'Engineering Hydrology',
+                    'Engineering Economics'
+                ],
+                '6': [
+                    'Estimating and Costing',
+                    'Design of RCC Structures',
+                    'Transportation Engineering II',
+                    'Irrigation and Drainage Engineering',
+                    'Professional and Social Engineering',
+                    'Elective I'
+                ],
+                '7': [
+                    'Operations Research',
+                    'Project and Construction Engineering',
+                    'Hydropower Engineering',
+                    'Elective II',
+                    'Elective III',
+                    'Project I'
+                ],
+                '8': [
+                    'Project II',
+                    'Internship'
+                ]
+            }
+            ,
+            BEX: {
+                '1': [
+                    'Computer Programming',
+                    'Engineering Drawing',
+                    'Engineering Mathematics I',
+                    'Engineering Physics',
+                    'Engineering Workshop',
+                    'Fundamental of Electrical and Electronics Engineering'
+                ],
+                '2': [
+                    'Digital Logic',
+                    'Electrical Circuits and Machines',
+                    'Electronic Device and Circuits',
+                    'Engineering Chemistry',
+                    'Engineering Mathematics II',
+                    'Object Oriented Programming'
+                ],
+                '3': [
+                    'Advanced Electronics',
+                    'Communication English',
+                    'Computer Graphics and Visualization',
+                    'Control System',
+                    'Engineering Mathematics III',
+                    'Microprocessors'
+                ],
+                '4': [
+                    'Computer Organization & Architecture',
+                    'Discrete Structure',
+                    'Electromagnetics',
+                    'Instrumentation',
+                    'Numerical Methods',
+                    'Signals and Systems'
+                ],
+                '5': [
+                    'Artificial Intelligence',
+                    'Elective I',
+                    'Embedded Systems',
+                    'Filter Design',
+                    'Probability and Statistics',
+                    'Propogation and Antennna'
+                ],
+                '6': [
+                    'Communication Systems',
+                    'Elective II',
+                    'Engineering Economics',
+                    'ICT Project Management',
+                    'Minor Project',
+                    'Telecommunication and Computer Networks'
+                ],
+                '7': [
+                    'Digital Signal Processing',
+                    'Elective III',
+                    'Project I',
+                    'RF and Microwave Engineering',
+                    'Robotics',
+                    'Wireless Communication'
+                ],
+                '8': [
+                    'Elective IV',
+                    'Energy, Environment and Social Engineering',
+                    'Internship**',
+                    'Project II'
+                ]
+            },
+            BMX: {
+                '1': [
+                    'Computer Programming',
+                    'Engineering Chemistry',
+                    'Engineering Drawing',
+                    'Engineering Mathematics I',
+                    'Engineering Mechanics I',
+                    'Fundamental of Electrical and Electronics Engineering'
+                ],
+                '2': [
+                    'Engineering Mathematics II',
+                    'Engineering Mechanics II',
+                    'Engineering Physics',
+                    'Engineering Thermodynamics I',
+                    'Machine Drawing',
+                    'Workshop Technology'
+                ],
+                '3': [
+                    'Engineering Mathematics III',
+                    'Engineering Thermodynamics II',
+                    'Manufacturing and Production Processes',
+                    'Material Science',
+                    'Metrology',
+                    'Strength of Materials'
+                ],
+                '4': [
+                    'Computer Aided Design',
+                    'Electrical Machines',
+                    'Fluid Mechanics with Engineering Applications',
+                    'Instrumentation and Sensors',
+                    'Mechanics of Solids',
+                    'Probability and Statistics'
+                ],
+                '5': [
+                    'Automotive Technology',
+                    'Control System and Automation',
+                    'Fluid Machines',
+                    'Numerical Methods',
+                    'Organization and Management',
+                    'Technical English',
+                    'Theory of Machines and Mechanism'
+                ],
+                '6': [
+                    'Elective I',
+                    'Heat and Mass Transfer',
+                    'Industrial Engineering and Management',
+                    'Machine Design I',
+                    'Machine Dynamics',
+                    'Minor Project',
+                    'Professional Engineering Economics'
+                ],
+                '7': [
+                    'Applied Computational Fluid Dynamics',
+                    'Elective II',
+                    'Energy Resources and Technology',
+                    'Enterpreneurship Development',
+                    'Finite Element Method',
+                    'Machine Design II',
+                    'Project I'
+                ],
+                '8': [
+                    'Elective III',
+                    'Industrial Attachment*',
+                    'Project II',
+                    'Project Management and Professional Practice'
+                ]
+            }
+        };
+        let a = 1; 
+
+        
+        let notesCache = [];
+        let selectedFaculty = 'BEL';
+        let selectedSemester = '1';
+        let selectedSubject = '__all__';
+        let notesSearchQuery = '';
+
+        let papersCache = [];
+        let papersFaculty = 'BEL';
+        let papersSemester = '1';
+        let papersSubject = '__all__';
+        let papersSearchQuery = '';
+
+        let syllabusCache = [];
+        let syllabusFaculty = 'BEL';
+        let syllabusSemester = '1';
+        let syllabusSubject = '__all__';
+        let syllabusSearchQuery = '';
+
+        let communityCache = [];
+        let communitySearchQuery = '';
+
+        function formatBytes(bytes) {
+            if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
+            const units = ['B', 'KB', 'MB', 'GB'];
+            let i = 0;
+            let n = bytes;
+            while (n >= 1024 && i < units.length - 1) {
+                n /= 1024;
+                i++;
+            }
+            return `${n.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+        }
+
+        function formatDate(iso) {
+            if (!iso) return '';
+            const d = new Date(iso);
+            if (Number.isNaN(d.getTime())) return '';
+            return d.toLocaleString();
+        }
+
+        async function fetchFilesFromGithub(category) {
+            const res = await fetch(githubRawPath('data/index.json'));
+            if (!res.ok) throw new Error('Could not load materials catalog');
+            const index = await res.json();
+            const files = (index.files || []).filter(f => f.category === category);
+            files.sort((a, b) => (b.uploaded_at || '').localeCompare(a.uploaded_at || ''));
+            return { files };
+        }
+
+        async function fetchFiles(category) {
+            if (!IS_GITHUB_PAGES) {
+                try {
+                    const res = await fetch(`${API_BASE}/api/files/${category}`);
+                    if (res.ok) return res.json();
+                } catch (_) { /* fall through to GitHub */ }
+            }
+            return fetchFilesFromGithub(category);
+        }
+
+        function makeCard({ id, title, metaLine, footer, externalUrl, file }) {
+            const card = document.createElement('div');
+            card.className = 'file-card';
+
+            const header = document.createElement('div');
+            header.className = 'file-card-header';
+
+            const info = document.createElement('div');
+            info.className = 'file-card-info';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = title;
+
+            const meta = document.createElement('p');
+            meta.className = 'file-card-meta';
+            meta.textContent = metaLine;
+
+            info.appendChild(h3);
+            info.appendChild(meta);
+
+            const btn = document.createElement('button');
+            btn.className = 'download-btn';
+            if (externalUrl) {
+                btn.textContent = '↗ Open';
+                btn.addEventListener('click', () => window.open(externalUrl, '_blank', 'noopener'));
+            } else {
+                btn.textContent = '⬇ Download';
+                btn.addEventListener('click', () => downloadFile(id, file));
+            }
+
+            header.appendChild(info);
+            header.appendChild(btn);
+
+            const foot = document.createElement('p');
+            foot.className = 'file-card-footer';
+            foot.textContent = footer;
+
+            card.appendChild(header);
+            card.appendChild(foot);
+            return card;
+        }
+
+        function renderList(listId, emptyId, files, mapper) {
+            const list = document.getElementById(listId);
+            const empty = document.getElementById(emptyId);
+
+            // Remove existing cards (keep empty-state node for toggling)
+            list.querySelectorAll('.file-card').forEach(n => n.remove());
+
+            if (!files || files.length === 0) {
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            files.forEach(f => list.appendChild(mapper(f)));
+        }
+
+        async function refreshAll() {
+            try {
+                const [notes, papers, syllabus] = await Promise.all([
+                    fetchFiles('notes'),
+                    fetchFiles('past-papers'),
+                    fetchFiles('syllabus')
+                ]);
+
+                notesCache = Array.isArray(notes.files) ? notes.files : [];
+                renderNotes();
+
+                papersCache = Array.isArray(papers.files) ? papers.files : [];
+                renderPapers();
+
+                syllabusCache = Array.isArray(syllabus.files) ? syllabus.files : [];
+                renderSyllabus();
+
+                await refreshCommunity();
+            } catch (err) {
+                console.error(err);
+                showError('notes-error', err.message || 'Could not load materials. Try the public link: ' + PUBLIC_SITE_URL);
+            }
+        }
+
+        async function refreshCommunity() {
+            if (!IS_GITHUB_PAGES) {
+                try {
+                    const res = await fetch(`${API_BASE}/api/community/posts`);
+                    if (res.ok) {
+                        const data = await res.json().catch(() => ({}));
+                        communityCache = Array.isArray(data.posts) ? data.posts : [];
+                        renderCommunity();
+                        return;
+                    }
+                } catch (_) { /* fall through */ }
+            }
+            try {
+                const res = await fetch(githubRawPath('data/community/posts.json'));
+                if (!res.ok) return;
+                const data = await res.json().catch(() => ({}));
+                communityCache = Array.isArray(data.posts) ? data.posts : [];
+                renderCommunity();
+            } catch (_) {
+                communityCache = [];
+                renderCommunity();
+            }
+        }
+
+        function renderCommunity() {
+            const list = document.getElementById('community-list');
+            const empty = document.getElementById('community-empty');
+            list.querySelectorAll('.file-card').forEach(n => n.remove());
+
+            const q = (communitySearchQuery || '').toLowerCase();
+            const posts = communityCache.filter(p => {
+                if (!q) return true;
+                const t = (p.title || '').toLowerCase();
+                const b = (p.body || '').toLowerCase();
+                const s = (p.meta?.subject || '').toLowerCase();
+                const f = (p.meta?.faculty || '').toLowerCase();
+                return t.includes(q) || b.includes(q) || s.includes(q) || f.includes(q);
+            });
+
+            if (posts.length === 0) {
+                empty.style.display = 'block';
+                return;
+            }
+            empty.style.display = 'none';
+
+            posts.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'file-card';
+
+                const header = document.createElement('div');
+                header.className = 'file-card-header';
+
+                const info = document.createElement('div');
+                info.className = 'file-card-info';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = p.title || 'Untitled';
+
+                const meta = document.createElement('p');
+                meta.className = 'file-card-meta';
+                const fac = p.meta?.faculty || 'Any';
+                const sem = p.meta?.semester || 'Any';
+                const sub = p.meta?.subject || 'Any subject';
+                meta.textContent = `Faculty: ${fac} | Semester: ${sem} | Subject: ${sub}`;
+
+                info.appendChild(h3);
+                info.appendChild(meta);
+
+                const actions = document.createElement('div');
+                actions.style.display = 'flex';
+                actions.style.gap = '8px';
+                actions.style.alignItems = 'center';
+
+                const up = document.createElement('button');
+                up.className = 'chip-btn';
+                up.textContent = '▲';
+                up.addEventListener('click', () => votePost(p.id, 'up'));
+
+                const score = document.createElement('div');
+                score.style.minWidth = '28px';
+                score.style.textAlign = 'center';
+                score.style.fontWeight = '800';
+                score.textContent = `${p.score ?? 0}`;
+
+                const down = document.createElement('button');
+                down.className = 'chip-btn';
+                down.textContent = '▼';
+                down.addEventListener('click', () => votePost(p.id, 'down'));
+
+                actions.appendChild(up);
+                actions.appendChild(score);
+                actions.appendChild(down);
+
+                if (p.attachment) {
+                    const ext = p.attachment.external_url;
+                    const dl = document.createElement('button');
+                    dl.className = 'download-btn';
+                    if (ext) {
+                        dl.textContent = '↗ Open';
+                        dl.addEventListener('click', () => window.open(ext, '_blank', 'noopener'));
+                    } else if (p.attachment.stored_name) {
+                        dl.textContent = '⬇ Download';
+                        dl.addEventListener('click', () => {
+                            if (IS_GITHUB_PAGES) {
+                                window.open(githubRawPath(`data/community/uploads/${p.attachment.stored_name}`), '_blank', 'noopener');
+                            } else {
+                                const base = API_BASE || window.location.origin;
+                                window.location.href = `${base}/community/download/${encodeURIComponent(p.id)}`;
+                            }
+                        });
+                    }
+                    actions.appendChild(dl);
+                }
+
+                header.appendChild(info);
+                header.appendChild(actions);
+
+                const foot = document.createElement('p');
+                foot.className = 'file-card-footer';
+                const when = formatDate(p.created_at);
+                const size = p.attachment?.size_bytes ? ` • ${formatBytes(p.attachment.size_bytes)}` : '';
+                foot.textContent = `Posted ${when}${size}`;
+
+                card.appendChild(header);
+                if (p.body) {
+                    const body = document.createElement('p');
+                    body.style.margin = '10px 0 0';
+                    body.style.color = '#666';
+                    body.style.fontSize = '13px';
+                    body.textContent = p.body;
+                    card.appendChild(body);
+                }
+                card.appendChild(foot);
+                list.appendChild(card);
+            });
+        }
+
+        async function createPost(event) {
+            event.preventDefault();
+            if (IS_GITHUB_PAGES) {
+                showError('community-error', 'Posting requires the full server. View and download work here; use Google Drive links when sharing new files.');
+                return;
+            }
+            try {
+                const form = new FormData();
+                const faculty = document.getElementById('community-faculty').value;
+                const semester = document.getElementById('community-semester').value;
+                const subject = document.getElementById('community-subject').value.trim();
+                const title = document.getElementById('community-title').value.trim();
+                const body = document.getElementById('community-body').value.trim();
+                const file = document.getElementById('community-file').files[0];
+                const driveUrl = document.getElementById('community-drive-url').value.trim();
+
+                if (file && driveUrl) {
+                    throw new Error('Use either a file upload or a Google Drive link, not both.');
+                }
+
+                form.append('faculty', faculty);
+                form.append('semester', semester);
+                form.append('subject', subject);
+                form.append('title', title);
+                form.append('body', body);
+                if (file) form.append('file', file);
+                if (driveUrl) form.append('external_url', driveUrl);
+
+                const res = await fetch(`${API_BASE}/api/community/posts`, { method: 'POST', body: form });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data?.error || 'Post failed');
+
+                document.getElementById('community-form').reset();
+                showSuccess('community-success', 'Posted to community!');
+                await refreshCommunity();
+            } catch (e) {
+                showError('community-error', e.message || 'Post failed');
+            }
+        }
+
+        async function votePost(id, direction) {
+            try {
+                const res = await fetch(`${API_BASE}/api/community/vote/${encodeURIComponent(id)}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ direction })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data?.error || 'Vote failed');
+                await refreshCommunity();
+            } catch (e) {
+                showError('community-error', e.message || 'Vote failed');
+            }
+        }
+
+        function setActiveChips(selector, attr, value) {
+            document.querySelectorAll(selector).forEach(btn => {
+                if (btn.getAttribute(attr) === value) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        function selectFaculty(fac) {
+            if (!FACULTIES.includes(fac)) return;
+            selectedFaculty = fac;
+            selectedSubject = '__all__';
+            setActiveChips('#notes-faculty-row .chip-btn', 'data-faculty', fac);
+            setActiveChips('#notes-subject-row .chip-btn', 'data-subject', '__all__');
+            renderNotes();
+        }
+
+        function selectSemester(sem) {
+            if (!SEMESTERS.includes(sem)) return;
+            selectedSemester = sem;
+            selectedSubject = '__all__';
+            setActiveChips('#notes-semester-row .chip-btn', 'data-semester', sem);
+            setActiveChips('#notes-subject-row .chip-btn', 'data-subject', '__all__');
+            renderNotes();
+        }
+
+        function selectSubject(subj) {
+            selectedSubject = subj;
+            setActiveChips('#notes-subject-row .chip-btn', 'data-subject', subj);
+            renderNotes();
+        }
+
+        function normalize(s) {
+            return (s || '').toString().trim();
+        }
+
+        function subjectKey(s) {
+            return normalize(s).toLowerCase();
+        }
+
+        function uniqueResourceKey(f) {
+            const m = f?.meta || {};
+            const code = normalize(m.code);
+            const type = normalize(m.type);
+            const fac = normalize(m.faculty);
+            const sem = normalize(m.semester);
+            const subj = normalize(m.subject);
+            const original = normalize(f.original_name);
+            const stored = normalize(f.stored_name);
+            const external = normalize(f.external_url);
+            return [
+                normalize(f.category),
+                fac,
+                sem,
+                subj,
+                code,
+                type,
+                original,
+                external,
+                stored
+            ].join('||');
+        }
+
+        function dedupeFiles(files) {
+            const seen = new Set();
+            const out = [];
+            (files || []).forEach(f => {
+                const k = uniqueResourceKey(f);
+                if (seen.has(k)) return;
+                seen.add(k);
+                out.push(f);
+            });
+            return out;
+        }
+
+        function getPresetSubjects(faculty, semester) {
+            const fac = SUBJECTS_BY_FAC_SEM?.[faculty];
+            const list = fac?.[semester];
+            return Array.isArray(list) ? list : null;
+        }
+
+        function buildSubjectButtons(files) {
+            const container = document.getElementById('notes-subject-dynamic');
+            container.innerHTML = '';
+
+            const preset = getPresetSubjects(selectedFaculty, selectedSemester);
+            const subjects = (preset || []).slice();
+
+            if (!preset) {
+                const subjectsMap = new Map();
+                files.forEach(f => {
+                    const sub = normalize(f.meta?.subject);
+                    if (!sub) return;
+                    const key = subjectKey(sub);
+                    if (!subjectsMap.has(key)) subjectsMap.set(key, sub);
+                });
+                subjects.push(...Array.from(subjectsMap.values()));
+                subjects.sort((a, b) => a.localeCompare(b));
+            }
+
+            subjects.forEach(sub => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'chip-btn';
+                btn.setAttribute('data-subject', sub);
+                btn.textContent = sub;
+                btn.addEventListener('click', () => selectSubject(sub));
+                container.appendChild(btn);
+            });
+        }
+
+        function buildSubjectButtonsInto(containerId, files, onClick) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            // Detect which navigator this belongs to by containerId
+            let fac = null;
+            let sem = null;
+            if (containerId === 'papers-subject-dynamic') {
+                fac = papersFaculty;
+                sem = papersSemester;
+            } else if (containerId === 'syllabus-subject-dynamic') {
+                fac = syllabusFaculty;
+                sem = syllabusSemester;
+            }
+
+            const preset = fac && sem ? getPresetSubjects(fac, sem) : null;
+            const subjects = (preset || []).slice();
+
+            if (!preset) {
+                const subjectsMap = new Map();
+                files.forEach(f => {
+                    const sub = normalize(f.meta?.subject);
+                    if (!sub) return;
+                    const key = subjectKey(sub);
+                    if (!subjectsMap.has(key)) subjectsMap.set(key, sub);
+                });
+                subjects.push(...Array.from(subjectsMap.values()));
+                subjects.sort((a, b) => a.localeCompare(b));
+            }
+
+            subjects.forEach(sub => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'chip-btn';
+                btn.setAttribute('data-subject', sub);
+                btn.textContent = sub;
+                btn.addEventListener('click', () => onClick(sub));
+                container.appendChild(btn);
+            });
+        }
+
+        function renderNotes() {
+            // keep chip UI consistent (defaults)
+            setActiveChips('#notes-faculty-row .chip-btn', 'data-faculty', selectedFaculty);
+            setActiveChips('#notes-semester-row .chip-btn', 'data-semester', selectedSemester);
+            setActiveChips('#notes-subject-row .chip-btn', 'data-subject', selectedSubject);
+
+            const filteredByFacSem = dedupeFiles(notesCache.filter(f => {
+                const fac = normalize(f.meta?.faculty);
+                const sem = normalize(f.meta?.semester);
+                return fac === selectedFaculty && sem === selectedSemester;
+            }));
+
+            buildSubjectButtons(filteredByFacSem);
+
+            // After rebuilding buttons, re-apply active state (DOM changed)
+            setActiveChips('#notes-subject-row .chip-btn', 'data-subject', selectedSubject);
+
+            const q = (notesSearchQuery || '').toLowerCase();
+            const files = dedupeFiles(filteredByFacSem.filter(f => {
+                if (selectedSubject !== '__all__') {
+                    const s = normalize(f.meta?.subject);
+                    if (s !== selectedSubject) return false;
+                }
+                if (!q) return true;
+                const subject = normalize(f.meta?.subject).toLowerCase();
+                const topic = normalize(f.meta?.topic).toLowerCase();
+                const original = normalize(f.original_name).toLowerCase();
+                return subject.includes(q) || topic.includes(q) || original.includes(q);
+            }));
+
+            const subjectFiles = document.getElementById('notes-subject-files');
+            subjectFiles.innerHTML = '';
+            if (selectedSubject === '__all__') {
+                // Show a grouped view by subject for this faculty+semester
+                const bySubject = new Map();
+                filteredByFacSem.forEach(f => {
+                    const sub = normalize(f.meta?.subject) || 'Unknown subject';
+                    if (!bySubject.has(sub)) bySubject.set(sub, []);
+                    bySubject.get(sub).push(f);
+                });
+                Array.from(bySubject.keys()).sort((a, b) => a.localeCompare(b)).forEach(sub => {
+                    const header = document.createElement('div');
+                    header.style.margin = '10px 0 6px';
+                    header.style.fontWeight = '700';
+                    header.style.color = '#333';
+                    header.textContent = sub;
+                    subjectFiles.appendChild(header);
+                    dedupeFiles(bySubject.get(sub)).forEach(f => {
+                        const topic = f.meta?.topic || 'Notes';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${sub} - ${topic}`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                });
+            } else {
+                // Show files directly under the chosen subject
+                if (files.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty-state';
+                    empty.innerHTML = '<div class="empty-state-icon">📂</div><div>No files uploaded for this subject yet.</div>';
+                    subjectFiles.appendChild(empty);
+                } else {
+                    files.forEach(f => {
+                        const subject = f.meta?.subject || 'Unknown subject';
+                        const topic = f.meta?.topic || 'Notes';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${subject} - ${topic}`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                }
+            }
+
+            // Bottom list is hidden; subjectFiles is the main renderer now.
+        }
+
+        function selectPapersFaculty(fac) {
+            if (!FACULTIES.includes(fac)) return;
+            papersFaculty = fac;
+            papersSubject = '__all__';
+            setActiveChips('#papers-faculty-row .chip-btn', 'data-faculty', fac);
+            setActiveChips('#papers-subject-row .chip-btn', 'data-subject', '__all__');
+            renderPapers();
+        }
+
+        function selectPapersSemester(sem) {
+            if (!SEMESTERS.includes(sem)) return;
+            papersSemester = sem;
+            papersSubject = '__all__';
+            setActiveChips('#papers-semester-row .chip-btn', 'data-semester', sem);
+            setActiveChips('#papers-subject-row .chip-btn', 'data-subject', '__all__');
+            renderPapers();
+        }
+
+        function selectPapersSubject(subj) {
+            papersSubject = subj;
+            setActiveChips('#papers-subject-row .chip-btn', 'data-subject', subj);
+            renderPapers();
+        }
+
+        function renderPapers() {
+            setActiveChips('#papers-faculty-row .chip-btn', 'data-faculty', papersFaculty);
+            setActiveChips('#papers-semester-row .chip-btn', 'data-semester', papersSemester);
+            setActiveChips('#papers-subject-row .chip-btn', 'data-subject', papersSubject);
+
+            const base = dedupeFiles(papersCache.filter(f => {
+                const fac = normalize(f.meta?.faculty);
+                const sem = normalize(f.meta?.semester);
+                return fac === papersFaculty && sem === papersSemester;
+            }));
+
+            buildSubjectButtonsInto('papers-subject-dynamic', base, (s) => selectPapersSubject(s));
+            setActiveChips('#papers-subject-row .chip-btn', 'data-subject', papersSubject);
+
+            const q = (papersSearchQuery || '').toLowerCase();
+            const filtered = dedupeFiles(base.filter(f => {
+                if (papersSubject !== '__all__' && normalize(f.meta?.subject) !== papersSubject) return false;
+                if (!q) return true;
+                const subject = normalize(f.meta?.subject).toLowerCase();
+                const year = normalize(f.meta?.year).toLowerCase();
+                const type = normalize(f.meta?.type).toLowerCase();
+                const original = normalize(f.original_name).toLowerCase();
+                return subject.includes(q) || year.includes(q) || type.includes(q) || original.includes(q);
+            }));
+
+            const subjectFiles = document.getElementById('papers-subject-files');
+            subjectFiles.innerHTML = '';
+            const toShow = filtered;
+            if (papersSubject === '__all__') {
+                // grouped by subject
+                const bySubject = new Map();
+                base.forEach(f => {
+                    const sub = normalize(f.meta?.subject) || 'Unknown subject';
+                    if (!bySubject.has(sub)) bySubject.set(sub, []);
+                    bySubject.get(sub).push(f);
+                });
+                Array.from(bySubject.keys()).sort((a, b) => a.localeCompare(b)).forEach(sub => {
+                    const header = document.createElement('div');
+                    header.style.margin = '10px 0 6px';
+                    header.style.fontWeight = '700';
+                    header.style.color = '#333';
+                    header.textContent = sub;
+                    subjectFiles.appendChild(header);
+                    dedupeFiles(bySubject.get(sub)).forEach(f => {
+                        const year = f.meta?.year || '—';
+                        const type = f.meta?.type || 'Exam';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${sub} - ${type} ${year}`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Year: ${year} | Type: ${type} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                });
+            } else {
+                if (toShow.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty-state';
+                    empty.innerHTML = '<div class="empty-state-icon">📂</div><div>No papers uploaded for this subject yet.</div>';
+                    subjectFiles.appendChild(empty);
+                } else {
+                    dedupeFiles(toShow).forEach(f => {
+                        const subject = f.meta?.subject || 'Unknown subject';
+                        const year = f.meta?.year || '—';
+                        const type = f.meta?.type || 'Exam';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${subject} - ${type} ${year}`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Year: ${year} | Type: ${type} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                }
+            }
+
+            // Bottom list is hidden; subjectFiles is the main renderer now.
+        }
+
+        function selectSyllabusFaculty(fac) {
+            if (!FACULTIES.includes(fac)) return;
+            syllabusFaculty = fac;
+            syllabusSubject = '__all__';
+            setActiveChips('#syllabus-faculty-row .chip-btn', 'data-faculty', fac);
+            setActiveChips('#syllabus-subject-row .chip-btn', 'data-subject', '__all__');
+            renderSyllabus();
+        }
+
+        function selectSyllabusSemester(sem) {
+            if (!SEMESTERS.includes(sem)) return;
+            syllabusSemester = sem;
+            syllabusSubject = '__all__';
+            setActiveChips('#syllabus-semester-row .chip-btn', 'data-semester', sem);
+            setActiveChips('#syllabus-subject-row .chip-btn', 'data-subject', '__all__');
+            renderSyllabus();
+        }
+
+        function selectSyllabusSubject(subj) {
+            syllabusSubject = subj;
+            setActiveChips('#syllabus-subject-row .chip-btn', 'data-subject', subj);
+            renderSyllabus();
+        }
+
+        function renderSyllabus() {
+            setActiveChips('#syllabus-faculty-row .chip-btn', 'data-faculty', syllabusFaculty);
+            setActiveChips('#syllabus-semester-row .chip-btn', 'data-semester', syllabusSemester);
+            setActiveChips('#syllabus-subject-row .chip-btn', 'data-subject', syllabusSubject);
+
+            const base = dedupeFiles(syllabusCache.filter(f => {
+                const fac = normalize(f.meta?.faculty);
+                const sem = normalize(f.meta?.semester);
+                return fac === syllabusFaculty && sem === syllabusSemester;
+            }));
+
+            buildSubjectButtonsInto('syllabus-subject-dynamic', base, (s) => selectSyllabusSubject(s));
+            setActiveChips('#syllabus-subject-row .chip-btn', 'data-subject', syllabusSubject);
+
+            const q = (syllabusSearchQuery || '').toLowerCase();
+            const filtered = dedupeFiles(base.filter(f => {
+                if (syllabusSubject !== '__all__' && normalize(f.meta?.subject) !== syllabusSubject) return false;
+                if (!q) return true;
+                const subject = normalize(f.meta?.subject).toLowerCase();
+                const code = normalize(f.meta?.code).toLowerCase();
+                const instructor = normalize(f.meta?.instructor).toLowerCase();
+                const original = normalize(f.original_name).toLowerCase();
+                return subject.includes(q) || code.includes(q) || instructor.includes(q) || original.includes(q);
+            }));
+
+            const subjectFiles = document.getElementById('syllabus-subject-files');
+            subjectFiles.innerHTML = '';
+
+            if (syllabusSubject === '__all__') {
+                const bySubject = new Map();
+                base.forEach(f => {
+                    const sub = normalize(f.meta?.subject) || 'Unknown course';
+                    if (!bySubject.has(sub)) bySubject.set(sub, []);
+                    bySubject.get(sub).push(f);
+                });
+                Array.from(bySubject.keys()).sort((a, b) => a.localeCompare(b)).forEach(sub => {
+                    const header = document.createElement('div');
+                    header.style.margin = '10px 0 6px';
+                    header.style.fontWeight = '700';
+                    header.style.color = '#333';
+                    header.textContent = sub;
+                    subjectFiles.appendChild(header);
+                    dedupeFiles(bySubject.get(sub)).forEach(f => {
+                        const code = f.meta?.code || '—';
+                        const instructor = f.meta?.instructor || '—';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${sub} (${code})`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Instructor: ${instructor} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                });
+            } else {
+                if (filtered.length === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty-state';
+                    empty.innerHTML = '<div class="empty-state-icon">📂</div><div>No syllabus uploaded for this subject yet.</div>';
+                    subjectFiles.appendChild(empty);
+                } else {
+                    filtered.forEach(f => {
+                        const subject = f.meta?.subject || 'Unknown course';
+                        const code = f.meta?.code || '—';
+                        const instructor = f.meta?.instructor || '—';
+                        const fac = f.meta?.faculty || '—';
+                        const sem = f.meta?.semester || '—';
+                        const title = `${subject} (${code})`;
+                        const metaLine = `Faculty: ${fac} | Semester: ${sem} | Instructor: ${instructor} | Original: ${f.original_name}`;
+                        const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
+                    });
+                }
+            }
+
+            // Bottom list is hidden; subjectFiles is the main renderer now.
+        }
+
+        function downloadFile(fileId, file) {
+            if (file?.external_url) {
+                window.open(file.external_url, '_blank', 'noopener');
+                return;
+            }
+            if (IS_GITHUB_PAGES && file?.stored_name && file?.category) {
+                window.open(githubRawPath(`data/uploads/${file.category}/${file.stored_name}`), '_blank', 'noopener');
+                return;
+            }
+            const base = API_BASE || window.location.origin;
+            window.location.href = `${base}/download/${encodeURIComponent(fileId)}`;
+        }
+
+        // Show success message
+        function showSuccess(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.add('show');
+            
+            setTimeout(() => {
+                element.classList.remove('show');
+            }, 4000);
+        }
+
+        // Show error message
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.add('show');
+            
+            setTimeout(() => {
+                element.classList.remove('show');
+            }, 4000);
+        }
+
+        // Search functionality
+        document.getElementById('notes-search').addEventListener('input', (e) => {
+            notesSearchQuery = e.target.value || '';
+            renderNotes();
+        });
+
+        document.getElementById('papers-search').addEventListener('input', (e) => {
+            papersSearchQuery = e.target.value || '';
+            renderPapers();
+        });
+
+        document.getElementById('syllabus-search').addEventListener('input', (e) => {
+            syllabusSearchQuery = e.target.value || '';
+            renderSyllabus();
+        });
+
+        document.getElementById('community-search').addEventListener('input', (e) => {
+            communitySearchQuery = e.target.value || '';
+            renderCommunity();
+        });
+
+        function filterCards(listId, query) {
+            const list = document.getElementById(listId);
+            const cards = list.querySelectorAll('.file-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const meta = card.querySelector('.file-card-meta').textContent.toLowerCase();
+                
+                if (title.includes(query) || meta.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // defaults for the new notes navigator
+            selectFaculty(selectedFaculty);
+            selectSemester(selectedSemester);
+
+            // defaults for other navigators
+            selectPapersFaculty(papersFaculty);
+            selectPapersSemester(papersSemester);
+            selectSyllabusFaculty(syllabusFaculty);
+            selectSyllabusSemester(syllabusSemester);
+            refreshAll();
+        });
+    </script>
+</body>
+</html>
