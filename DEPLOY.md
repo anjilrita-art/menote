@@ -1,28 +1,27 @@
-# Deploy StudyHub (one-time setup)
+# Hosting options
 
-After you push this repo to GitHub, deploy on Render so friends can open one link and download files.
+## Option 1 — Public site for everyone (recommended)
 
-## Steps
+**URL:** https://anjilrita-art.github.io/menote/
 
-1. Push the latest code:
-   ```bash
-   git push origin main
-   ```
+Push to `main` → GitHub Actions deploys automatically.
 
-2. Open [https://dashboard.render.com/select-repo?type=blueprint](https://dashboard.render.com/select-repo?type=blueprint)
+If the site 404s the first time:
 
-3. Connect GitHub account → choose repository **anjilrita-art/menote** (or your fork).
+1. Open https://github.com/anjilrita-art/menote/settings/pages
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Re-run the **Deploy public StudyHub site** workflow
 
-4. Render reads `render.yaml` and creates a **studyhub** web service. Click **Apply**.
+Share only this link — not `127.0.0.1` and not the raw HTML file.
 
-5. Wait for the build (~2–5 minutes). Copy the URL, e.g. `https://studyhub-xxxx.onrender.com`.
+## Option 2 — Render (uploads + API)
 
-6. Share that URL with friends (not `127.0.0.1` and not the raw HTML file).
+1. https://dashboard.render.com/select-repo?type=blueprint
+2. Connect **menote** → **Apply**
+3. Share the `https://studyhub-xxxx.onrender.com` URL
 
-## Free tier note
+Free tier sleeps when idle; first visit may take ~30 seconds.
 
-The service sleeps after ~15 minutes idle; the first visit may take ~30 seconds to wake up.
+## Optional auto-redeploy (Render)
 
-## New uploads with Google Drive
-
-For community posts, use **Or Google Drive link** with sharing set to **Anyone with the link** so files stay available even if the server restarts.
+After creating the Render service: **Settings → Deploy Hook** → add URL as GitHub secret `RENDER_DEPLOY_HOOK_URL`.

@@ -68,6 +68,21 @@
             opacity: 0.9;
         }
 
+        .public-banner {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .public-banner a {
+            color: #fff;
+            font-weight: 700;
+        }
+
         header p {
             margin: 0;
             font-size: 14px;
@@ -549,6 +564,10 @@
     <header>
         <h1>StudyHub</h1>
         <div class="subtitle">A simple resource hub for notes, past papers, and syllabi</div>
+        <div class="public-banner" id="public-banner">
+            Public site — share this link so anyone can browse and download materials.
+            <a id="public-share-link" href="#">Loading…</a>
+        </div>
     </header>
 
     <nav>
@@ -824,20 +843,41 @@
             });
         });
 
-        // API base: same-origin when the site is hosted (Render, etc.).
-        // Override with ?api=https://your-app.onrender.com if needed.
+        // Public materials are stored in GitHub; this repo powers downloads for everyone.
+        const GITHUB_REPO = 'anjilrita-art/menote';
+        const GITHUB_BRANCH = 'main';
+        const IS_GITHUB_PAGES = /\.github\.io$/i.test(window.location.hostname);
+        const PUBLIC_SITE_URL = `https://${GITHUB_REPO.split('/')[0]}.github.io/${GITHUB_REPO.split('/')[1]}/`;
+
+        function githubRawPath(path) {
+            return `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}/${path.replace(/^\/+/, '')}`;
+        }
+
+        // API base: same-origin when hosted on Render; empty on GitHub Pages (uses GitHub raw).
         const API_BASE = (() => {
             const params = new URLSearchParams(window.location.search || '');
             const fromQuery = (params.get('api') || '').trim();
             if (fromQuery) return fromQuery.replace(/\/+$/, '');
             if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000';
+            if (IS_GITHUB_PAGES) return '';
             const host = window.location.hostname;
             const port = window.location.port;
-            // VS Code Live Server dev: HTML on 5500, Flask on 8000.
             if ((host === 'localhost' || host === '127.0.0.1') && (port === '5500' || port === '5501')) {
                 return 'http://127.0.0.1:8000';
             }
             return '';
+        })();
+
+        (function setupPublicBanner() {
+            const link = document.getElementById('public-share-link');
+            const banner = document.getElementById('public-banner');
+            if (!link || !banner) return;
+            const shareUrl = IS_GITHUB_PAGES ? window.location.href.split('?')[0] : PUBLIC_SITE_URL;
+            link.href = shareUrl;
+            link.textContent = shareUrl;
+            if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                banner.innerHTML = 'Local preview — share the public link: <a href="' + PUBLIC_SITE_URL + '">' + PUBLIC_SITE_URL + '</a>';
+            }
         })();
         const FACULTIES = ['BEL', 'BCT', 'BEX', 'BMX', 'BCE'];
         const SEMESTERS = ['1','2','3','4','5','6','7','8'];
@@ -1217,13 +1257,26 @@
             return d.toLocaleString();
         }
 
-        async function fetchFiles(category) {
-            const res = await fetch(`${API_BASE}/api/files/${category}`);
-            if (!res.ok) throw new Error('Failed to load files');
-            return res.json();
+        async function fetchFilesFromGithub(category) {
+            const res = await fetch(githubRawPath('data/index.json'));
+            if (!res.ok) throw new Error('Could not load materials catalog');
+            const index = await res.json();
+            const files = (index.files || []).filter(f => f.category === category);
+            files.sort((a, b) => (b.uploaded_at || '').localeCompare(a.uploaded_at || ''));
+            return { files };
         }
 
-        function makeCard({ id, title, metaLine, footer, externalUrl }) {
+        async function fetchFiles(category) {
+            if (!IS_GITHUB_PAGES) {
+                try {
+                    const res = await fetch(`${API_BASE}/api/files/${category}`);
+                    if (res.ok) return res.json();
+                } catch (_) { /* fall through to GitHub */ }
+            }
+            return fetchFilesFromGithub(category);
+        }
+
+        function makeCard({ id, title, metaLine, footer, externalUrl, file }) {
             const card = document.createElement('div');
             card.className = 'file-card';
 
@@ -1250,7 +1303,7 @@
                 btn.addEventListener('click', () => window.open(externalUrl, '_blank', 'noopener'));
             } else {
                 btn.textContent = '⬇ Download';
-                btn.addEventListener('click', () => downloadFile(id));
+                btn.addEventListener('click', () => downloadFile(id, file));
             }
 
             header.appendChild(info);
@@ -1301,20 +1354,32 @@
                 await refreshCommunity();
             } catch (err) {
                 console.error(err);
-
-
-
-
-
+                showError('notes-error', err.message || 'Could not load materials. Try the public link: ' + PUBLIC_SITE_URL);
             }
         }
 
         async function refreshCommunity() {
-            const res = await fetch(`${API_BASE}/api/community/posts`);
-            if (!res.ok) return;
-            const data = await res.json().catch(() => ({}));
-            communityCache = Array.isArray(data.posts) ? data.posts : [];
-            renderCommunity();
+            if (!IS_GITHUB_PAGES) {
+                try {
+                    const res = await fetch(`${API_BASE}/api/community/posts`);
+                    if (res.ok) {
+                        const data = await res.json().catch(() => ({}));
+                        communityCache = Array.isArray(data.posts) ? data.posts : [];
+                        renderCommunity();
+                        return;
+                    }
+                } catch (_) { /* fall through */ }
+            }
+            try {
+                const res = await fetch(githubRawPath('data/community/posts.json'));
+                if (!res.ok) return;
+                const data = await res.json().catch(() => ({}));
+                communityCache = Array.isArray(data.posts) ? data.posts : [];
+                renderCommunity();
+            } catch (_) {
+                communityCache = [];
+                renderCommunity();
+            }
         }
 
         function renderCommunity() {
@@ -1393,10 +1458,15 @@
                     if (ext) {
                         dl.textContent = '↗ Open';
                         dl.addEventListener('click', () => window.open(ext, '_blank', 'noopener'));
-                    } else {
+                    } else if (p.attachment.stored_name) {
                         dl.textContent = '⬇ Download';
                         dl.addEventListener('click', () => {
-                            window.location.href = `${API_BASE}/community/download/${encodeURIComponent(p.id)}`;
+                            if (IS_GITHUB_PAGES) {
+                                window.open(githubRawPath(`data/community/uploads/${p.attachment.stored_name}`), '_blank', 'noopener');
+                            } else {
+                                const base = API_BASE || window.location.origin;
+                                window.location.href = `${base}/community/download/${encodeURIComponent(p.id)}`;
+                            }
                         });
                     }
                     actions.appendChild(dl);
@@ -1427,6 +1497,10 @@
 
         async function createPost(event) {
             event.preventDefault();
+            if (IS_GITHUB_PAGES) {
+                showError('community-error', 'Posting requires the full server. View and download work here; use Google Drive links when sharing new files.');
+                return;
+            }
             try {
                 const form = new FormData();
                 const faculty = document.getElementById('community-faculty').value;
@@ -1681,7 +1755,7 @@
                         const title = `${sub} - ${topic}`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 });
             } else {
@@ -1700,7 +1774,7 @@
                         const title = `${subject} - ${topic}`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 }
             }
@@ -1783,7 +1857,7 @@
                         const title = `${sub} - ${type} ${year}`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Year: ${year} | Type: ${type} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 });
             } else {
@@ -1802,7 +1876,7 @@
                         const title = `${subject} - ${type} ${year}`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Year: ${year} | Type: ${type} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 }
             }
@@ -1884,7 +1958,7 @@
                         const title = `${sub} (${code})`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Instructor: ${instructor} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 });
             } else {
@@ -1903,7 +1977,7 @@
                         const title = `${subject} (${code})`;
                         const metaLine = `Faculty: ${fac} | Semester: ${sem} | Instructor: ${instructor} | Original: ${f.original_name}`;
                         const footer = `📄 ${formatBytes(f.size_bytes)} • Uploaded ${formatDate(f.uploaded_at)}`;
-                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url }));
+                        subjectFiles.appendChild(makeCard({ id: f.id, title, metaLine, footer, externalUrl: f.external_url, file: f }));
                     });
                 }
             }
@@ -1911,9 +1985,17 @@
             // Bottom list is hidden; subjectFiles is the main renderer now.
         }
 
-        // Download File
-        function downloadFile(fileId) {
-            window.location.href = `${API_BASE}/download/${encodeURIComponent(fileId)}`;
+        function downloadFile(fileId, file) {
+            if (file?.external_url) {
+                window.open(file.external_url, '_blank', 'noopener');
+                return;
+            }
+            if (IS_GITHUB_PAGES && file?.stored_name && file?.category) {
+                window.open(githubRawPath(`data/uploads/${file.category}/${file.stored_name}`), '_blank', 'noopener');
+                return;
+            }
+            const base = API_BASE || window.location.origin;
+            window.location.href = `${base}/download/${encodeURIComponent(fileId)}`;
         }
 
         // Show success message

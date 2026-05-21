@@ -25,6 +25,9 @@ COMMUNITY_DIR = DATA_DIR / "community"
 COMMUNITY_UPLOADS_DIR = COMMUNITY_DIR / "uploads"
 COMMUNITY_INDEX_PATH = COMMUNITY_DIR / "posts.json"
 
+GITHUB_RAW_REPO = os.environ.get("GITHUB_RAW_REPO", "anjilrita-art/menote")
+GITHUB_RAW_BRANCH = os.environ.get("GITHUB_RAW_BRANCH", "main")
+
 Category = Literal["notes", "past-papers", "syllabus"]
 ALLOWED_CATEGORIES: set[str] = {"notes", "past-papers", "syllabus"}
 
@@ -93,6 +96,11 @@ def _get_entry(index: dict[str, Any], file_id: str) -> FileEntry | None:
     return None
 
 
+def _github_raw_url(path: str) -> str:
+    path = path.lstrip("/")
+    return f"https://raw.githubusercontent.com/{GITHUB_RAW_REPO}/{GITHUB_RAW_BRANCH}/{path}"
+
+
 def _category_or_404(raw: str | None) -> str:
     if not raw or raw not in ALLOWED_CATEGORIES:
         raise ValueError("Invalid category")
@@ -124,6 +132,18 @@ def home():
 @app.get("/health")
 def health():
     return jsonify({"ok": True})
+
+
+@app.get("/api/config")
+def public_config():
+    return jsonify(
+        {
+            "public_site_url": f"https://{GITHUB_RAW_REPO.split('/')[0]}.github.io/{GITHUB_RAW_REPO.split('/')[1]}/",
+            "github_repo": GITHUB_RAW_REPO,
+            "github_branch": GITHUB_RAW_BRANCH,
+            "file_count": len(_load_index().get("files", [])),
+        }
+    )
 
 
 @app.get("/api/files/<category>")
@@ -232,6 +252,11 @@ def download(file_id: str):
 
     path = UPLOADS_DIR / entry.category / entry.stored_name
     if not path.exists():
+        if entry.stored_name and GITHUB_RAW_REPO:
+            return redirect(
+                _github_raw_url(f"data/uploads/{entry.category}/{entry.stored_name}"),
+                code=302,
+            )
         return jsonify({"error": "File missing on server"}), 404
 
     return send_file(
@@ -382,6 +407,11 @@ def community_download(post_id: str):
 
     path = COMMUNITY_UPLOADS_DIR / stored_name
     if not path.exists():
+        if stored_name and GITHUB_RAW_REPO:
+            return redirect(
+                _github_raw_url(f"data/community/uploads/{stored_name}"),
+                code=302,
+            )
         return jsonify({"error": "File missing on server"}), 404
 
     return send_file(
