@@ -9,8 +9,9 @@ Push to `main` → GitHub Actions deploys automatically.
 If the site 404s the first time:
 
 1. Open https://github.com/anjilrita-art/menote/settings/pages
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Re-run the **Deploy public StudyHub site** workflow
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**
+3. Branch: **gh-pages** / folder **/(root)**
+4. Save, wait 1–2 minutes, then open https://anjilrita-art.github.io/menote/
 
 Share only this link — not `127.0.0.1` and not the raw HTML file.
 
